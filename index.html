@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Código Enigma | Casos sin resolver</title>
+
+    <meta name="description" content="Casos criminales ficticios. Investiga las pistas, interroga a los sospechosos y descubre la verdad.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span>◈</span> CÓDIGO ENIGMA
+    </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#casos">Casos</a>
+        <a href="#como-jugar">Cómo jugar</a>
+    </nav>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section id="inicio" class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">EXPEDIENTES ABIERTOS</div>
+
+        <h1>
+            TODOS<br>
+            <span>MIENTEN.</span>
+        </h1>
+
+        <p>
+            Casos ficticios de asesinato donde cada detalle puede ser
+            la diferencia entre descubrir al culpable o acusar al inocente.
+        </p>
+
+        <a href="#casos" class="main-button">
+            INVESTIGAR UN CASO →
+        </a>
+
+    </div>
+
+    <div class="hero-file">
+
+        <div class="file-card">
+
+            <div class="file-top">
+                <span>EXPEDIENTE</span>
+                <span>#001</span>
+            </div>
+
+            <div class="file-stamp">
+                CASO ABIERTO
+            </div>
+
+            <div class="file-info">
+                <p>VICTIMA</p>
+                <strong>SOFÍA MARTÍNEZ</strong>
+
+                <p>ESTADO</p>
+                <strong class="red">ASESINATO</strong>
+
+                <p>PISTAS</p>
+                <strong>18</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CASOS -->
+
+<section id="casos" class="section">
+
+    <div class="section-title">
+        <span>01 / EXPEDIENTES</span>
+        <h2>Casos disponibles</h2>
+    </div>
+
+
+    <div class="case-card">
+
+        <div class="case-number">
+            CASO<br>
+            <strong>001</strong>
+        </div>
+
+        <div class="case-content">
+
+            <div class="case-status">
+                ● CASO ABIERTO
+            </div>
+
+            <h3>Todos mienten</h3>
+
+            <p>
+                Sofía Martínez aparece muerta en su apartamento.
+                No hay señales de entrada forzada.
+                Seis personas estuvieron relacionadas con ella
+                durante las últimas 24 horas.
+            </p>
+
+            <div class="case-stats">
+                <span>👥 6 SOSPECHOSOS</span>
+                <span>🔎 18 PISTAS</span>
+                <span>🧩 1 SOLUCIÓN</span>
+            </div>
+
+            <button class="investigate-button" onclick="openCase()">
+                ABRIR EXPEDIENTE →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COMO JUGAR -->
+
+<section id="como-jugar" class="section how">
+
+    <div class="section-title">
+        <span>02 / MÉTODO</span>
+        <h2>¿Cómo funciona?</h2>
+    </div>
+
+    <div class="steps">
+
+        <div class="step">
+            <div>01</div>
+            <h3>Investiga</h3>
+            <p>
+                Lee el expediente y examina cada pista.
+            </p>
+        </div>
+
+        <div class="step">
+            <div>02</div>
+            <h3>Conecta</h3>
+            <p>
+                Compara declaraciones, horarios y evidencias.
+            </p>
+        </div>
+
+        <div class="step">
+            <div>03</div>
+            <h3>Acusa</h3>
+            <p>
+                Elige quién crees que es el culpable.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPEDIENTE -->
+
+<section id="expediente" class="case-page hidden">
+
+    <div class="case-header">
+
+        <button class="back-button" onclick="closeCase()">
+            ← VOLVER
+        </button>
+
+        <div>
+            <span>EXPEDIENTE #001</span>
+            <h2>TODOS MIENTEN</h2>
+        </div>
+
+        <div class="case-danger">
+            CASO ABIERTO
+        </div>
+
+    </div>
+
+
+    <div class="case-intro">
+
+        <h3>EL CASO</h3>
+
+        <p>
+            A las 22:26 del martes, la policía recibió una llamada
+            desde el apartamento 407 del edificio Altavista.
+        </p>
+
+        <p>
+            En el interior encontraron a
+            <strong>Sofía Martínez, 29 años</strong>,
+            sin vida en la sala.
+        </p>
+
+        <p>
+            La puerta principal estaba cerrada.
+            No había señales evidentes de robo.
+            El teléfono de la víctima había desaparecido.
+        </p>
+
+        <div class="warning">
+            ⚠️ ADVERTENCIA: algunos testimonios contienen información falsa.
+        </div>
+
+    </div>
+
+
+    <!-- SOSPECHOSOS -->
+
+    <div class="investigation-section">
+
+        <h3>👥 SOSPECHOSOS</h3>
+
+        <div class="suspects">
+
+            <div class="suspect">
+                <div class="suspect-number">01</div>
+                <h4>Daniel Rojas</h4>
+                <p>Exnovio de Sofía</p>
+                <button onclick="showSuspect('daniel')">VER EXPEDIENTE</button>
+            </div>
+
+            <div class="suspect">
+                <div class="suspect-number">02</div>
+                <h4>Laura Gómez</h4>
+                <p>Mejor amiga</p>
+                <button onclick="showSuspect('laura')">VER EXPEDIENTE</button>
+            </div>
+
+            <div class="suspect">
+                <div class="suspect-number">03</div>
+                <h4>Mateo Ruiz</h4>
+                <p>Vecino del 406</p>
+                <button onclick="showSuspect('mateo')">VER EXPEDIENTE</button>
+            </div>
+
+            <div class="suspect">
+                <div class="suspect-number">04</div>
+                <h4>Camila Torres</h4>
+                <p>Compañera de trabajo</p>
+                <button onclick="showSuspect('camila')">VER EXPEDIENTE</button>
+            </div>
+
+            <div class="suspect">
+                <div class="suspect-number">05</div>
+                <h4>Andrés Silva</h4>
+                <p>Socio de negocios</p>
+                <button onclick="showSuspect('andres')">VER EXPEDIENTE</button>
+            </div>
+
+            <div class="suspect">
+                <div class="suspect-number">06</div>
+                <h4>Valentina Cruz</h4>
+                <p>Hermana de la víctima</p>
+                <button onclick="showSuspect('valentina')">VER EXPEDIENTE</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PISTAS -->
+
+    <div class="investigation-section">
+
+        <h3>🔎 PISTAS</h3>
+
+        <div class="clues">
+
+            <div class="clue">
+                <span>PISTA 01</span>
+                <p>La puerta no presentaba daños.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 02</span>
+                <p>El reloj de la sala estaba detenido a las 22:13.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 03</span>
+                <p>Había dos vasos sobre la mesa.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 04</span>
+                <p>Uno de los vasos tenía huellas parciales.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 05</span>
+                <p>El teléfono de Sofía había desaparecido.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 06</span>
+                <p>El ascensor registró un viaje a las 21:58.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 07</span>
+                <p>Un vecino escuchó una discusión.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 08</span>
+                <p>La discusión ocurrió aproximadamente a las 22:05.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 09</span>
+                <p>La ventana de la sala estaba abierta.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 10</span>
+                <p>Comenzó a llover a las 21:40.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 11</span>
+                <p>No había huellas mojadas en el apartamento.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 12</span>
+                <p>La víctima tenía una pequeña herida en la mano.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 13</span>
+                <p>Había una fotografía rota junto al sofá.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 14</span>
+                <p>El reloj no funcionaba desde las 21:30.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 15</span>
+                <p>Una cámara del pasillo dejó de grabar durante 7 minutos.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 16</span>
+                <p>Alguien utilizó el ascensor durante ese intervalo.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 17</span>
+                <p>La víctima había enviado un mensaje antes de morir.</p>
+            </div>
+
+            <div class="clue">
+                <span>PISTA 18</span>
+                <p>El mensaje decía: "Sé lo que hiciste."</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LINEA DE TIEMPO -->
+
+    <div class="investigation-section">
+
+        <h3>🕰️ LÍNEA TEMPORAL</h3>
+
+        <div class="timeline">
+
+            <div>
+                <strong>21:40</strong>
+                <span>Comienza la lluvia.</span>
+            </div>
+
+            <div>
+                <strong>21:58</strong>
+                <span>El ascensor registra movimiento.</span>
+            </div>
+
+            <div>
+                <strong>22:05</strong>
+                <span>Un vecino escucha una discusión.</span>
+            </div>
+
+            <div>
+                <strong>22:13</strong>
+                <span>El reloj de la sala queda detenido.</span>
+            </div>
+
+            <div>
+                <strong>22:26</strong>
+                <span>Llega la policía.</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACUSACION -->
+
+    <div class="accusation">
+
+        <h3>🧠 ¿QUIÉN ES EL ASESINO?</h3>
+
+        <p>
+            Has revisado el expediente.
+            Ahora debes tomar una decisión.
+        </p>
+
+        <div class="suspect-buttons">
+
+            <button onclick="accuse('Daniel Rojas')">Daniel Rojas</button>
+            <button onclick="accuse('Laura Gómez')">Laura Gómez</button>
+            <button onclick="accuse('Mateo Ruiz')">Mateo Ruiz</button>
+            <button onclick="accuse('Camila Torres')">Camila Torres</button>
+            <button onclick="accuse('Andrés Silva')">Andrés Silva</button>
+            <button onclick="accuse('Valentina Cruz')">Valentina Cruz</button>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULTADO -->
+
+    <div id="result" class="result hidden">
+
+        <h2 id="result-title"></h2>
+
+        <p id="result-text"></p>
+
+        <div class="solution">
+
+            <h3>🔐 RESOLUCIÓN</h3>
+
+            <p>
+                El asesino fue <strong>Mateo Ruiz</strong>.
+            </p>
+
+            <p>
+                Mateo declaró que nunca salió de su apartamento
+                durante la noche. Sin embargo, el registro del
+                ascensor demuestra que alguien utilizó el ascensor
+                a las 21:58.
+            </p>
+
+            <p>
+                Además, afirmó que no conocía a Sofía lo suficiente
+                como para entrar en su apartamento.
+            </p>
+
+            <p>
+                La cámara dejó de grabar exactamente durante el
+                intervalo en que Mateo podía desplazarse hasta
+                el apartamento de Sofía.
+            </p>
+
+            <p>
+                La pista definitiva fue el mensaje:
+                <strong>"Sé lo que hiciste."</strong>
+            </p>
+
+            <p>
+                Sofía había descubierto que Mateo estaba involucrado
+                en un fraude relacionado con el edificio.
+            </p>
+
+            <p>
+                Mateo intentó recuperar el teléfono de Sofía para
+                eliminar las pruebas.
+            </p>
+
+            <div class="final-message">
+                CASO RESUELTO.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div>
+        ◈ CÓDIGO ENIGMA
+    </div>
+
+    <p>
+        Todos los casos son ficticios y creados con fines de entretenimiento.
+    </p>
+
+    <p>
+        © 2026 Código Enigma
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+  </html>
