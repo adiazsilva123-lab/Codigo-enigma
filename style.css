@@ -613,7 +613,7 @@ footer {
   padding: 25px;
 }
 
-.modal.show {
+.modal.open {
   display: grid;
   place-items: center;
 }
