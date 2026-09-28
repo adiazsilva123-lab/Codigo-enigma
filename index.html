@@ -1,530 +1,648 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Código Enigma | Casos sin resolver</title>
-
-    <meta name="description" content="Casos criminales ficticios. Investiga las pistas, interroga a los sospechosos y descubre la verdad.">
-
-    <link rel="stylesheet" href="style.css"> 
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7699315059205425"
-     crossorigin="anonymous"></script>
+         crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Código Enigma: casos ficticios de misterio e investigación. Analiza testimonios, pistas, líneas de tiempo y descubre quién miente.">
+  <meta name="robots" content="index,follow">
+  <title>Código Enigma | Casos de misterio e investigación</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="logo">
-        <span>◈</span> CÓDIGO ENIGMA
-    </div>
+  <header class="site-header">
+    <div class="nav-wrap">
 
-    <nav>
+      <a class="brand" href="#inicio" aria-label="Código Enigma inicio">
+        <span class="brand-mark">CE</span>
+        <span><strong>Código</strong> Enigma</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+      <nav id="mainNav">
         <a href="#inicio">Inicio</a>
         <a href="#casos">Casos</a>
-        <a href="#como-jugar">Cómo jugar</a>
-    </nav>
-</header>
+        <a href="#como-jugar">Cómo investigar</a>
+        <a href="#sobre">Sobre el proyecto</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+    </div>
+  </header>
 
 
-<main>
+  <main>
 
-<!-- HERO -->
+    <section id="inicio" class="hero">
 
-<section id="inicio" class="hero">
+      <div class="hero-copy">
 
-    <div class="hero-content">
-
-        <div class="badge">EXPEDIENTES ABIERTOS</div>
+        <p class="eyebrow">
+          EXPEDIENTES DE INVESTIGACIÓN · FICCIÓN
+        </p>
 
         <h1>
-            TODOS<br>
-            <span>MIENTEN.</span>
+          Algunas historias esconden la verdad entre líneas.
         </h1>
 
-        <p>
-            Casos ficticios de asesinato donde cada detalle puede ser
-            la diferencia entre descubrir al culpable o acusar al inocente.
+        <p class="hero-text">
+          Lee los expedientes, compara testimonios, revisa las evidencias
+          y construye tu propia teoría. Aquí no gana quien lee más rápido,
+          sino quien conecta mejor las piezas.
         </p>
 
-        <a href="#casos" class="main-button">
-            INVESTIGAR UN CASO →
-        </a>
+        <div class="hero-actions">
 
-    </div>
+          <a class="btn primary" href="#casos">
+            Explorar casos
+          </a>
 
-    <div class="hero-file">
-
-        <div class="file-card">
-
-            <div class="file-top">
-                <span>EXPEDIENTE</span>
-                <span>#001</span>
-            </div>
-
-            <div class="file-stamp">
-                CASO ABIERTO
-            </div>
-
-            <div class="file-info">
-                <p>VICTIMA</p>
-                <strong>SOFÍA MARTÍNEZ</strong>
-
-                <p>ESTADO</p>
-                <strong class="red">ASESINATO</strong>
-
-                <p>PISTAS</p>
-                <strong>18</strong>
-            </div>
+          <a class="btn ghost" href="#como-jugar">
+            Cómo investigar
+          </a>
 
         </div>
 
-    </div>
+        <p class="disclaimer">
+          Todos los casos de Código Enigma son ficticios y están creados
+          con fines de entretenimiento.
+        </p>
 
-</section>
-
-
-<!-- CASOS -->
-
-<section id="casos" class="section">
-
-    <div class="section-title">
-        <span>01 / EXPEDIENTES</span>
-        <h2>Casos disponibles</h2>
-    </div>
+      </div>
 
 
-    <div class="case-card">
+      <div class="hero-card">
 
-        <div class="case-number">
-            CASO<br>
-            <strong>001</strong>
+        <div class="case-file-top">
+          <span>EXPEDIENTE</span>
+          <span>CE-2026</span>
         </div>
 
-        <div class="case-content">
-
-            <div class="case-status">
-                ● CASO ABIERTO
-            </div>
-
-            <h3>Todos mienten</h3>
-
-            <p>
-                Sofía Martínez aparece muerta en su apartamento.
-                No hay señales de entrada forzada.
-                Seis personas estuvieron relacionadas con ella
-                durante las últimas 24 horas.
-            </p>
-
-            <div class="case-stats">
-                <span>👥 6 SOSPECHOSOS</span>
-                <span>🔎 18 PISTAS</span>
-                <span>🧩 1 SOLUCIÓN</span>
-            </div>
-
-            <button class="investigate-button" onclick="openCase()">
-                ABRIR EXPEDIENTE →
-            </button>
-
+        <div class="stamp">
+          ABIERTO
         </div>
 
-    </div>
+        <h2>
+          ¿Puedes detectar la contradicción?
+        </h2>
 
-</section>
+        <p>
+          Cada caso contiene testimonios, cronologías, objetos y pistas.
+          La solución no aparece hasta que decidas investigar.
+        </p>
 
-
-<!-- COMO JUGAR -->
-
-<section id="como-jugar" class="section how">
-
-    <div class="section-title">
-        <span>02 / MÉTODO</span>
-        <h2>¿Cómo funciona?</h2>
-    </div>
-
-    <div class="steps">
-
-        <div class="step">
-            <div>01</div>
-            <h3>Investiga</h3>
-            <p>
-                Lee el expediente y examina cada pista.
-            </p>
+        <div class="mini-stats">
+          <span><b>5</b> casos</span>
+          <span><b>24+</b> sospechosos</span>
+          <span><b>80+</b> pistas</span>
         </div>
 
-        <div class="step">
-            <div>02</div>
-            <h3>Conecta</h3>
-            <p>
-                Compara declaraciones, horarios y evidencias.
-            </p>
-        </div>
+      </div>
 
-        <div class="step">
-            <div>03</div>
-            <h3>Acusa</h3>
-            <p>
-                Elige quién crees que es el culpable.
-            </p>
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- EXPEDIENTE -->
+    <section class="intro-section">
 
-<section id="expediente" class="case-page hidden">
+      <div>
 
-    <div class="case-header">
+        <p class="eyebrow">
+          EL MÉTODO
+        </p>
 
-        <button class="back-button" onclick="closeCase()">
-            ← VOLVER
-        </button>
+        <h2>
+          Investiga antes de acusar.
+        </h2>
+
+      </div>
+
+      <p>
+        Los expedientes están diseñados para que puedas volver atrás,
+        comparar detalles y encontrar inconsistencias. No necesitas
+        conocimientos de criminología: solo atención, memoria y una
+        buena libreta mental.
+      </p>
+
+    </section>
+
+
+    <section id="casos" class="section">
+
+      <div class="section-heading">
 
         <div>
-            <span>EXPEDIENTE #001</span>
-            <h2>TODOS MIENTEN</h2>
+
+          <p class="eyebrow">
+            EXPEDIENTES
+          </p>
+
+          <h2>
+            Casos abiertos
+          </h2>
+
         </div>
 
-        <div class="case-danger">
-            CASO ABIERTO
+
+        <div class="filters" role="group" aria-label="Filtrar casos">
+
+          <button class="filter active" data-filter="todos">
+            Todos
+          </button>
+
+          <button class="filter" data-filter="homicidio">
+            Homicidio
+          </button>
+
+          <button class="filter" data-filter="desaparicion">
+            Desaparición
+          </button>
+
+          <button class="filter" data-filter="robo">
+            Robo
+          </button>
+
         </div>
 
-    </div>
+      </div>
 
 
-    <div class="case-intro">
+      <div class="case-grid">
 
-        <h3>EL CASO</h3>
+
+        <article class="case-card" data-category="homicidio">
+
+          <div class="case-number">
+            01
+          </div>
+
+          <span class="tag">
+            HOMICIDIO
+          </span>
+
+          <h3>
+            Todos mienten
+          </h3>
+
+          <p>
+            Una mujer aparece muerta en su apartamento. Seis personas
+            tenían motivos para ocultar algo, pero una de sus declaraciones
+            no encaja con la evidencia.
+          </p>
+
+          <div class="case-meta">
+            <span>6 sospechosos</span>
+            <span>18 pistas</span>
+          </div>
+
+          <button class="btn small open-case" data-case="caso1">
+            Abrir expediente
+          </button>
+
+        </article>
+
+
+
+        <article class="case-card" data-category="desaparicion">
+
+          <div class="case-number">
+            02
+          </div>
+
+          <span class="tag">
+            DESAPARICIÓN
+          </span>
+
+          <h3>
+            La habitación 314
+          </h3>
+
+          <p>
+            Un huésped desaparece de un hotel durante una noche de tormenta.
+            Su habitación estaba cerrada y tres testimonios contradicen
+            el registro del edificio.
+          </p>
+
+          <div class="case-meta">
+            <span>5 sospechosos</span>
+            <span>16 pistas</span>
+          </div>
+
+          <button class="btn small open-case" data-case="caso2">
+            Abrir expediente
+          </button>
+
+        </article>
+
+
+
+        <article class="case-card" data-category="homicidio">
+
+          <div class="case-number">
+            03
+          </div>
+
+          <span class="tag">
+            HOMICIDIO
+          </span>
+
+          <h3>
+            El último mensaje
+          </h3>
+
+          <p>
+            Un periodista recibe una amenaza horas antes de morir.
+            Su teléfono contiene un mensaje enviado después de la hora
+            oficial de su muerte.
+          </p>
+
+          <div class="case-meta">
+            <span>5 sospechosos</span>
+            <span>17 pistas</span>
+          </div>
+
+          <button class="btn small open-case" data-case="caso3">
+            Abrir expediente
+          </button>
+
+        </article>
+
+
+
+        <article class="case-card" data-category="robo">
+
+          <div class="case-number">
+            04
+          </div>
+
+          <span class="tag">
+            ROBO
+          </span>
+
+          <h3>
+            La vitrina vacía
+          </h3>
+
+          <p>
+            Una pieza histórica desaparece de una galería sin que salten
+            las alarmas. El inventario, los accesos y una fotografía
+            cuentan historias diferentes.
+          </p>
+
+          <div class="case-meta">
+            <span>4 sospechosos</span>
+            <span>15 pistas</span>
+          </div>
+
+          <button class="btn small open-case" data-case="caso4">
+            Abrir expediente
+          </button>
+
+        </article>
+
+
+
+        <article class="case-card" data-category="desaparicion">
+
+          <div class="case-number">
+            05
+          </div>
+
+          <span class="tag">
+            DESAPARICIÓN
+          </span>
+
+          <h3>
+            El tren de las 23:17
+          </h3>
+
+          <p>
+            Una pasajera baja en una estación donde nunca debía detenerse
+            el tren. La cámara del andén registra algo que nadie mencionó
+            en su declaración.
+          </p>
+
+          <div class="case-meta">
+            <span>5 sospechosos</span>
+            <span>16 pistas</span>
+          </div>
+
+          <button class="btn small open-case" data-case="caso5">
+            Abrir expediente
+          </button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section id="como-jugar" class="section dark-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <p class="eyebrow">
+            CÓMO FUNCIONA
+          </p>
+
+          <h2>
+            Tu método de investigación
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="steps">
+
+        <div class="step">
+
+          <span>01</span>
+
+          <h3>
+            Lee el contexto
+          </h3>
+
+          <p>
+            Conoce a la víctima, el lugar y los hechos confirmados antes
+            de formar una teoría.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <span>02</span>
+
+          <h3>
+            Compara testimonios
+          </h3>
+
+          <p>
+            Busca diferencias entre lo que cada persona afirma y lo que
+            muestran los registros.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <span>03</span>
+
+          <h3>
+            Ordena el tiempo
+          </h3>
+
+          <p>
+            Una cronología puede revelar que dos versiones no pueden ser
+            ciertas al mismo tiempo.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <span>04</span>
+
+          <h3>
+            Acusa con evidencia
+          </h3>
+
+          <p>
+            Cuando tengas una teoría, abre la solución y comprueba qué
+            pistas la sostienen.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="sobre" class="section content-section">
+
+      <div class="content-grid">
+
+        <div>
+
+          <p class="eyebrow">
+            SOBRE CÓDIGO ENIGMA
+          </p>
+
+          <h2>
+            Un archivo de historias para quienes disfrutan resolverlas.
+          </h2>
+
+        </div>
+
+
+        <div>
+
+          <p>
+            Código Enigma es un proyecto independiente de entretenimiento
+            basado en casos ficticios de misterio. Cada expediente combina
+            narración, personajes, pistas y cronologías para crear una
+            experiencia de investigación interactiva.
+          </p>
+
+          <p>
+            Los nombres, lugares, personajes y acontecimientos de los casos
+            son inventados. Cualquier parecido con personas o hechos reales
+            es accidental.
+          </p>
+
+          <p>
+            El objetivo del proyecto es ofrecer historias que puedan leerse
+            con calma, analizarse y discutirse. Las soluciones incluyen una
+            explicación de las pistas principales para que puedas revisar
+            tu razonamiento después de investigar.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="contacto" class="section contact-section">
+
+      <div class="contact-box">
+
+        <p class="eyebrow">
+          CONTACTO
+        </p>
+
+        <h2>
+          ¿Encontraste un error en un expediente?
+        </h2>
 
         <p>
-            A las 22:26 del martes, la policía recibió una llamada
-            desde el apartamento 407 del edificio Altavista.
+          Si encuentras un enlace roto, una pista que no funciona o quieres
+          enviar una sugerencia sobre el sitio, puedes escribir al correo
+          del proyecto.
+        </p>
+
+        <a class="btn primary" href="mailto: adiazsilva123@gmail.com">
+          Contactar
+        </a>
+
+        <p class="small-note">
+          Si todavía no tienes un correo propio para el proyecto, cambia
+          esta dirección por tu correo real antes de publicar.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="section legal-section">
+
+      <details>
+
+        <summary>
+          Política de privacidad
+        </summary>
+
+        <p>
+          Código Enigma procura recopilar la menor cantidad posible de
+          información personal. Si el sitio incorpora herramientas de
+          análisis, formularios, publicidad u otros servicios de terceros,
+          esta política debe actualizarse para describir qué datos se
+          recopilan, para qué se utilizan y cómo puede contactarse al
+          responsable del sitio.
         </p>
 
         <p>
-            En el interior encontraron a
-            <strong>Sofía Martínez, 29 años</strong>,
-            sin vida en la sala.
+          Antes de activar publicidad, reemplaza este texto por una política
+          de privacidad completa que identifique los servicios realmente
+          utilizados en tu sitio.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Términos de uso
+        </summary>
+
+        <p>
+          El contenido de Código Enigma se ofrece con fines de entretenimiento.
+          Los casos son ficticios. No se debe interpretar el contenido como
+          información policial, jurídica, periodística o profesional.
         </p>
 
         <p>
-            La puerta principal estaba cerrada.
-            No había señales evidentes de robo.
-            El teléfono de la víctima había desaparecido.
+          El usuario puede leer y utilizar el contenido para fines personales.
+          El contenido del sitio no debe copiarse o redistribuirse como propio
+          sin autorización.
         </p>
 
-        <div class="warning">
-            ⚠️ ADVERTENCIA: algunos testimonios contienen información falsa.
-        </div>
-
-    </div>
+      </details>
 
 
-    <!-- SOSPECHOSOS -->
+      <details>
 
-    <div class="investigation-section">
-
-        <h3>👥 SOSPECHOSOS</h3>
-
-        <div class="suspects">
-
-            <div class="suspect">
-                <div class="suspect-number">01</div>
-                <h4>Daniel Rojas</h4>
-                <p>Exnovio de Sofía</p>
-                <button onclick="showSuspect('daniel')">VER EXPEDIENTE</button>
-            </div>
-
-            <div class="suspect">
-                <div class="suspect-number">02</div>
-                <h4>Laura Gómez</h4>
-                <p>Mejor amiga</p>
-                <button onclick="showSuspect('laura')">VER EXPEDIENTE</button>
-            </div>
-
-            <div class="suspect">
-                <div class="suspect-number">03</div>
-                <h4>Mateo Ruiz</h4>
-                <p>Vecino del 406</p>
-                <button onclick="showSuspect('mateo')">VER EXPEDIENTE</button>
-            </div>
-
-            <div class="suspect">
-                <div class="suspect-number">04</div>
-                <h4>Camila Torres</h4>
-                <p>Compañera de trabajo</p>
-                <button onclick="showSuspect('camila')">VER EXPEDIENTE</button>
-            </div>
-
-            <div class="suspect">
-                <div class="suspect-number">05</div>
-                <h4>Andrés Silva</h4>
-                <p>Socio de negocios</p>
-                <button onclick="showSuspect('andres')">VER EXPEDIENTE</button>
-            </div>
-
-            <div class="suspect">
-                <div class="suspect-number">06</div>
-                <h4>Valentina Cruz</h4>
-                <p>Hermana de la víctima</p>
-                <button onclick="showSuspect('valentina')">VER EXPEDIENTE</button>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PISTAS -->
-
-    <div class="investigation-section">
-
-        <h3>🔎 PISTAS</h3>
-
-        <div class="clues">
-
-            <div class="clue">
-                <span>PISTA 01</span>
-                <p>La puerta no presentaba daños.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 02</span>
-                <p>El reloj de la sala estaba detenido a las 22:13.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 03</span>
-                <p>Había dos vasos sobre la mesa.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 04</span>
-                <p>Uno de los vasos tenía huellas parciales.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 05</span>
-                <p>El teléfono de Sofía había desaparecido.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 06</span>
-                <p>El ascensor registró un viaje a las 21:58.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 07</span>
-                <p>Un vecino escuchó una discusión.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 08</span>
-                <p>La discusión ocurrió aproximadamente a las 22:05.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 09</span>
-                <p>La ventana de la sala estaba abierta.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 10</span>
-                <p>Comenzó a llover a las 21:40.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 11</span>
-                <p>No había huellas mojadas en el apartamento.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 12</span>
-                <p>La víctima tenía una pequeña herida en la mano.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 13</span>
-                <p>Había una fotografía rota junto al sofá.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 14</span>
-                <p>El reloj no funcionaba desde las 21:30.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 15</span>
-                <p>Una cámara del pasillo dejó de grabar durante 7 minutos.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 16</span>
-                <p>Alguien utilizó el ascensor durante ese intervalo.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 17</span>
-                <p>La víctima había enviado un mensaje antes de morir.</p>
-            </div>
-
-            <div class="clue">
-                <span>PISTA 18</span>
-                <p>El mensaje decía: "Sé lo que hiciste."</p>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- LINEA DE TIEMPO -->
-
-    <div class="investigation-section">
-
-        <h3>🕰️ LÍNEA TEMPORAL</h3>
-
-        <div class="timeline">
-
-            <div>
-                <strong>21:40</strong>
-                <span>Comienza la lluvia.</span>
-            </div>
-
-            <div>
-                <strong>21:58</strong>
-                <span>El ascensor registra movimiento.</span>
-            </div>
-
-            <div>
-                <strong>22:05</strong>
-                <span>Un vecino escucha una discusión.</span>
-            </div>
-
-            <div>
-                <strong>22:13</strong>
-                <span>El reloj de la sala queda detenido.</span>
-            </div>
-
-            <div>
-                <strong>22:26</strong>
-                <span>Llega la policía.</span>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ACUSACION -->
-
-    <div class="accusation">
-
-        <h3>🧠 ¿QUIÉN ES EL ASESINO?</h3>
+        <summary>
+          Contenido y publicidad
+        </summary>
 
         <p>
-            Has revisado el expediente.
-            Ahora debes tomar una decisión.
+          El contenido editorial es el elemento principal de este sitio.
+          Cualquier espacio publicitario debe mantenerse separado de los
+          controles del juego y no debe interferir con la lectura o la
+          investigación del caso.
         </p>
 
-        <div class="suspect-buttons">
+      </details>
 
-            <button onclick="accuse('Daniel Rojas')">Daniel Rojas</button>
-            <button onclick="accuse('Laura Gómez')">Laura Gómez</button>
-            <button onclick="accuse('Mateo Ruiz')">Mateo Ruiz</button>
-            <button onclick="accuse('Camila Torres')">Camila Torres</button>
-            <button onclick="accuse('Andrés Silva')">Andrés Silva</button>
-            <button onclick="accuse('Valentina Cruz')">Valentina Cruz</button>
+    </section>
 
-        </div>
-
-    </div>
+  </main>
 
 
-    <!-- RESULTADO -->
+  <footer>
 
-    <div id="result" class="result hidden">
+    <div class="footer-inner">
 
-        <h2 id="result-title"></h2>
+      <div>
 
-        <p id="result-text"></p>
+        <strong>
+          Código Enigma
+        </strong>
 
-        <div class="solution">
+        <p>
+          Casos ficticios para mentes curiosas.
+        </p>
 
-            <h3>🔐 RESOLUCIÓN</h3>
+      </div>
 
-            <p>
-                El asesino fue <strong>Mateo Ruiz</strong>.
-            </p>
 
-            <p>
-                Mateo declaró que nunca salió de su apartamento
-                durante la noche. Sin embargo, el registro del
-                ascensor demuestra que alguien utilizó el ascensor
-                a las 21:58.
-            </p>
+      <div class="footer-links">
 
-            <p>
-                Además, afirmó que no conocía a Sofía lo suficiente
-                como para entrar en su apartamento.
-            </p>
+        <a href="#sobre">
+          Sobre el proyecto
+        </a>
 
-            <p>
-                La cámara dejó de grabar exactamente durante el
-                intervalo en que Mateo podía desplazarse hasta
-                el apartamento de Sofía.
-            </p>
+        <a href="#contacto">
+          Contacto
+        </a>
 
-            <p>
-                La pista definitiva fue el mensaje:
-                <strong>"Sé lo que hiciste."</strong>
-            </p>
+        <a href="#casos">
+          Casos
+        </a>
 
-            <p>
-                Sofía había descubierto que Mateo estaba involucrado
-                en un fraude relacionado con el edificio.
-            </p>
-
-            <p>
-                Mateo intentó recuperar el teléfono de Sofía para
-                eliminar las pruebas.
-            </p>
-
-            <div class="final-message">
-                CASO RESUELTO.
-            </div>
-
-        </div>
+      </div>
 
     </div>
 
-</section>
 
-</main>
-
-
-<footer>
-
-    <div>
-        ◈ CÓDIGO ENIGMA
-    </div>
-
-    <p>
-        Todos los casos son ficticios y creados con fines de entretenimiento.
+    <p class="copyright">
+      © 2026 Código Enigma. Todos los casos son ficticios.
     </p>
 
-    <p>
-        © 2026 Código Enigma
-    </p>
-
-</footer>
+  </footer>
 
 
-<script src="script.js"></script>
+  <div class="modal" id="caseModal" aria-hidden="true">
+
+    <div class="modal-backdrop" data-close="true"></div>
+
+    <div class="modal-panel"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalTitle">
+
+      <button class="modal-close"
+              id="modalClose"
+              aria-label="Cerrar">
+        ×
+      </button>
+
+      <div id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
 
 </body>
-  </html>
+    </html>
