@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  console.log("Código Enigma funcionando");
+  console.log("Código Enigma: iniciando...");
+
+  /* =====================================================
+     DATOS DE LOS CASOS
+  ===================================================== */
 
   const casos = {
+
     caso1: {
       tag: "HOMICIDIO · CE-001",
       title: "Todos mienten",
@@ -148,38 +153,43 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       solution: "La parada de las 23:17 es la anomalía central."
     }
+
   };
 
 
-  /* =========================
-     ABRIR CASOS
-  ========================= */
+  /* =====================================================
+     ELEMENTOS PRINCIPALES
+  ===================================================== */
 
-  document.addEventListener("click", function(e) {
+  const modal = document.getElementById("caseModal");
+  const modalContent = document.getElementById("modalContent");
+  const modalClose = document.getElementById("modalClose");
+  const mainNav = document.getElementById("mainNav");
 
-    const boton = e.target.closest(".open-case");
 
-    if (!boton) return;
+  /* =====================================================
+     ABRIR MODAL
+  ===================================================== */
 
-    e.preventDefault();
+  function abrirCaso(id) {
 
-    const id = boton.getAttribute("data-case");
+    console.log("Intentando abrir:", id);
+
     const caso = casos[id];
 
-    console.log("Botón pulsado:", id);
-
     if (!caso) {
-      console.error("No existe el caso:", id);
+      console.error("Caso inexistente:", id);
       return;
     }
 
-    const modal = document.getElementById("caseModal");
-    const contenido = document.getElementById("modalContent");
-
-    if (!modal || !contenido) {
-      console.error("No se encontró el modal");
+    if (!modal || !modalContent) {
+      console.error("No se encontró el modal.");
       return;
     }
+
+    modalContent.innerHTML = "";
+
+    const contenido = document.createElement("div");
 
     contenido.innerHTML = `
       <p class="modal-kicker">${caso.tag}</p>
@@ -222,105 +232,158 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
+    modalContent.appendChild(contenido);
+
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
 
-  });
+    document.body.classList.add("modal-open");
+
+    console.log("Caso abierto correctamente:", id);
+  }
 
 
-  /* =========================
+  /* =====================================================
      CERRAR MODAL
-  ========================= */
+  ===================================================== */
 
-  document.addEventListener("click", function(e) {
+  function cerrarModal() {
+
+    if (!modal) return;
+
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("modal-open");
+
+    console.log("Modal cerrado");
+  }
+
+
+  /* =====================================================
+     UN SOLO CONTROLADOR DE CLICS
+  ===================================================== */
+
+  document.addEventListener("click", (e) => {
+
+    /* -------------------------
+       ABRIR CASO
+    ------------------------- */
+
+    const botonCaso = e.target.closest(".open-case");
+
+    if (botonCaso) {
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const id = botonCaso.dataset.case;
+
+      abrirCaso(id);
+
+      return;
+    }
+
+
+    /* -------------------------
+       CERRAR MODAL
+    ------------------------- */
 
     if (
-      e.target.matches(".modal-close") ||
-      e.target.matches(".modal-backdrop")
+      e.target === modal ||
+      e.target.classList.contains("modal-backdrop") ||
+      e.target.closest(".modal-close")
     ) {
 
-      const modal = document.getElementById("caseModal");
+      e.preventDefault();
 
-      if (modal) {
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
+      cerrarModal();
+
+      return;
+    }
+
+
+    /* -------------------------
+       FILTROS
+    ------------------------- */
+
+    const botonFiltro = e.target.closest(".filter");
+
+    if (botonFiltro) {
+
+      e.preventDefault();
+
+      const filtro = botonFiltro.dataset.filter;
+
+      console.log("Filtro seleccionado:", filtro);
+
+      document.querySelectorAll(".filter").forEach((boton) => {
+        boton.classList.remove("active");
+      });
+
+      botonFiltro.classList.add("active");
+
+      document.querySelectorAll(".case-card").forEach((card) => {
+
+        const categoria = card.dataset.category;
+
+        if (filtro === "todos" || categoria === filtro) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+      return;
+    }
+
+
+    /* -------------------------
+       MENÚ MÓVIL
+    ------------------------- */
+
+    const botonMenu = e.target.closest("#menuBtn");
+
+    if (botonMenu) {
+
+      e.preventDefault();
+
+      if (mainNav) {
+        mainNav.classList.toggle("open");
       }
 
+      return;
     }
 
   });
 
 
-  /* ESC */
+  /* =====================================================
+     ESC PARA CERRAR
+  ===================================================== */
 
-  document.addEventListener("keydown", function(e) {
+  document.addEventListener("keydown", (e) => {
 
     if (e.key === "Escape") {
-
-      const modal = document.getElementById("caseModal");
-
-      if (modal) {
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
-      }
-
+      cerrarModal();
     }
 
   });
 
 
-  /* =========================
-     FILTROS
-  ========================= */
+  /* =====================================================
+     EVITAR ERROR SI EL MODAL NO EXISTE
+  ===================================================== */
 
-  document.addEventListener("click", function(e) {
+  if (!modal) {
+    console.error("Código Enigma: #caseModal no existe.");
+  }
 
-    const boton = e.target.closest(".filter");
+  if (!modalContent) {
+    console.error("Código Enigma: #modalContent no existe.");
+  }
 
-    if (!boton) return;
-
-    const filtro = boton.getAttribute("data-filter");
-
-    document.querySelectorAll(".filter").forEach(b => {
-      b.classList.remove("active");
-    });
-
-    boton.classList.add("active");
-
-    document.querySelectorAll(".case-card").forEach(card => {
-
-      const categoria = card.getAttribute("data-category");
-
-      if (filtro === "todos" || categoria === filtro) {
-        card.style.display = "";
-      } else {
-        card.style.display = "none";
-      }
-
-    });
-
-  });
-
-
-  /* =========================
-     MENÚ
-  ========================= */
-
-  document.addEventListener("click", function(e) {
-
-    const boton = e.target.closest("#menuBtn");
-
-    if (!boton) return;
-
-    const nav = document.getElementById("mainNav");
-
-    if (nav) {
-      nav.classList.toggle("open");
-    }
-
-  });
-
-
-  console.log("Código Enigma: sistema listo");
+  console.log("Código Enigma: sistema listo correctamente.");
 
 });
