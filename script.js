@@ -332,4 +332,499 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
 
       timeline: [
-        ["22:48", "El tren abandona 
+        ["22:48", "El tren abandona la estación Central."],
+        ["23:05", "Clara aparece en el registro interno del tren."],
+        ["23:17", "El tren realiza una parada inesperada."],
+        ["23:17:20", "Una puerta registra una apertura."],
+        ["23:17:54", "El tren vuelve a moverse."],
+        ["23:19", "El teléfono de Clara mantiene conexión."],
+        ["23:26", "El tren llega a la siguiente estación."],
+        ["23:31", "El personal nota la ausencia de Clara."],
+        ["23:41", "Se revisan las cámaras."]
+      ],
+
+      quotes: [
+        ["Vi a una mujer cerca de la puerta cuando el tren se detuvo.", "Álvaro Cruz"],
+        ["La parada duró menos de un minuto.", "Ricardo Salas"],
+        ["El sistema no registró ninguna evacuación autorizada.", "Mónica Vera"],
+        ["Yo estaba trabajando en otra sección de la estación.", "Esteban Ruiz"]
+      ],
+
+      questions: [
+        "¿Qué ocurrió realmente durante los 54 segundos?",
+        "¿A quién pertenece el paraguas rojo?",
+        "¿Por qué existen dos validaciones del boleto?",
+        "¿Cómo debe corregirse el desfase de los relojes?"
+      ],
+
+      solution:
+        "La parada de 54 segundos es la ventana principal de investigación. Antes de interpretar cámaras y registros, hay que corregir el desfase de 37 segundos del reloj de la estación y comparar las diferentes referencias horarias. La apertura de una puerta y la presencia de una persona en el exterior son datos relevantes, pero ninguno identifica por sí solo qué ocurrió con Clara."
+    }
+  };
+
+  function escapeHTML(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function crearExpediente(caso) {
+
+    const pistas = caso.clues.map((pista, i) => `
+      <article class="modal-section">
+        <div class="section-number">
+          ${String(i + 1).padStart(2, "0")}
+        </div>
+
+        <div>
+          <h3>${escapeHTML(pista[0])}</h3>
+          <p>${escapeHTML(pista[1])}</p>
+        </div>
+      </article>
+    `).join("");
+
+    const sospechosos = caso.suspects.map(s => `
+      <article class="suspect-card">
+        <span class="suspect-role">
+          ${escapeHTML(s[1])}
+        </span>
+
+        <h3>
+          ${escapeHTML(s[0])}
+        </h3>
+
+        <p>
+          ${escapeHTML(s[2])}
+        </p>
+      </article>
+    `).join("");
+
+    const cronologia = caso.timeline.map(e => `
+      <li>
+        <strong>${escapeHTML(e[0])}</strong>
+        <span>${escapeHTML(e[1])}</span>
+      </li>
+    `).join("");
+
+    const declaraciones = caso.quotes.map(q => `
+      <blockquote>
+        <p>“${escapeHTML(q[0])}”</p>
+        <cite>${escapeHTML(q[1])}</cite>
+      </blockquote>
+    `).join("");
+
+    const preguntas = caso.questions.map(q =>
+      `<li>${escapeHTML(q)}</li>`
+    ).join("");
+
+    return `
+      <header class="case-head">
+
+        <div class="case-head-top">
+
+          <div>
+            <span class="eyebrow">
+              EXPEDIENTE ${escapeHTML(caso.code)}
+            </span>
+
+            <span class="case-category">
+              ${escapeHTML(caso.category)}
+            </span>
+          </div>
+
+          <span class="case-difficulty">
+            DIFICULTAD · ${escapeHTML(caso.difficulty)}
+          </span>
+
+        </div>
+
+        <h2 id="modalTitle">
+          ${escapeHTML(caso.title)}
+        </h2>
+
+        <p class="case-intro">
+          ${escapeHTML(caso.intro)}
+        </p>
+
+        <div class="case-info">
+
+          <div>
+            <span>PERSONA / OBJETIVO</span>
+            <strong>${escapeHTML(caso.victim)}</strong>
+          </div>
+
+          <div>
+            <span>FECHA</span>
+            <strong>${escapeHTML(caso.date)}</strong>
+          </div>
+
+          <div>
+            <span>LUGAR</span>
+            <strong>${escapeHTML(caso.place)}</strong>
+          </div>
+
+          <div>
+            <span>DIFICULTAD</span>
+            <strong>${escapeHTML(caso.difficulty)}</strong>
+          </div>
+
+        </div>
+
+      </header>
+
+      <div class="case-body">
+
+        <section class="modal-story">
+
+          <span class="eyebrow">
+            CONTEXTO DEL CASO
+          </span>
+
+          <h3>
+            Lo que sabemos
+          </h3>
+
+          <p>
+            ${escapeHTML(caso.story)}
+          </p>
+
+        </section>
+
+        <section>
+
+          <div class="section-title">
+            <span class="eyebrow">EVIDENCIA</span>
+            <h3>Pistas encontradas</h3>
+          </div>
+
+          <div class="clue-list">
+            ${pistas}
+          </div>
+
+        </section>
+
+        <section>
+
+          <div class="section-title">
+            <span class="eyebrow">INVESTIGACIÓN</span>
+            <h3>Personas relacionadas</h3>
+          </div>
+
+          <div class="suspect-list">
+            ${sospechosos}
+          </div>
+
+        </section>
+
+        <section>
+
+          <div class="section-title">
+            <span class="eyebrow">CRONOLOGÍA</span>
+            <h3>Línea temporal</h3>
+          </div>
+
+          <ol class="timeline-list">
+            ${cronologia}
+          </ol>
+
+        </section>
+
+        <section>
+
+          <div class="section-title">
+            <span class="eyebrow">DECLARACIONES</span>
+            <h3>Lo que dijeron</h3>
+          </div>
+
+          <div class="quotes-list">
+            ${declaraciones}
+          </div>
+
+        </section>
+
+        <section>
+
+          <div class="section-title">
+            <span class="eyebrow">PARA EL INVESTIGADOR</span>
+            <h3>Preguntas clave</h3>
+          </div>
+
+          <ol class="questions-list">
+            ${preguntas}
+          </ol>
+
+        </section>
+
+        <section class="solution-area">
+
+          <button
+            type="button"
+            class="solution-toggle">
+            🔐 Revelar reconstrucción
+          </button>
+
+          <div class="solution-box">
+
+            <span class="eyebrow">
+              RECONSTRUCCIÓN DEL EXPEDIENTE
+            </span>
+
+            <p>
+              ${escapeHTML(caso.solution)}
+            </p>
+
+          </div>
+
+        </section>
+
+      </div>
+    `;
+  }
+
+  function abrirCaso(numero) {
+
+    const caso = casos[String(numero)];
+
+    if (!caso) {
+      console.error(
+        "Código Enigma: caso inexistente",
+        numero
+      );
+      return;
+    }
+
+    modalContent.innerHTML = crearExpediente(caso);
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add(
+      "modal-open",
+      "lock"
+    );
+
+    document.body.style.overflow = "hidden";
+
+    const panel = modal.querySelector(".modal-panel");
+
+    if (panel) {
+      panel.scrollTop = 0;
+    }
+  }
+
+  function cerrarModal() {
+
+    modal.classList.remove("open");
+
+    modal.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    document.body.classList.remove(
+      "modal-open",
+      "lock"
+    );
+
+    document.body.style.overflow = "";
+  }
+
+
+  /* =======================================================
+     ABRIR EXPEDIENTE
+     ======================================================= */
+
+  document.addEventListener("click", event => {
+
+    const boton = event.target.closest(".open-case");
+
+    if (!boton) {
+      return;
+    }
+
+    event.preventDefault();
+
+    abrirCaso(
+      boton.dataset.case
+    );
+  });
+
+
+  /* =======================================================
+     CERRAR CON X
+     ======================================================= */
+
+  if (modalClose) {
+
+    modalClose.addEventListener(
+      "click",
+      event => {
+
+        event.preventDefault();
+
+        cerrarModal();
+      }
+    );
+  }
+
+
+  /* =======================================================
+     CERRAR TOCANDO EL FONDO
+     ======================================================= */
+
+  modal.addEventListener(
+    "click",
+    event => {
+
+      if (
+        event.target === modal ||
+        event.target.closest(".modal-backdrop")
+      ) {
+
+        cerrarModal();
+      }
+    }
+  );
+
+
+  /* =======================================================
+     CERRAR CON ESC
+     ======================================================= */
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key === "Escape" &&
+        modal.classList.contains("open")
+      ) {
+
+        cerrarModal();
+      }
+    }
+  );
+
+
+  /* =======================================================
+     REVELAR SOLUCIÓN
+     ======================================================= */
+
+  document.addEventListener(
+    "click",
+    event => {
+
+      const boton =
+        event.target.closest(".solution-toggle");
+
+      if (!boton) {
+        return;
+      }
+
+      const caja =
+        boton.nextElementSibling;
+
+      if (!caja) {
+        return;
+      }
+
+      const visible =
+        caja.classList.toggle("visible");
+
+      caja.style.display =
+        visible ? "block" : "none";
+
+      boton.textContent =
+        visible
+          ? "🔓 Ocultar reconstrucción"
+          : "🔐 Revelar reconstrucción";
+    }
+  );
+
+
+  /* =======================================================
+     FILTROS
+     ======================================================= */
+
+  filters.forEach(filter => {
+
+    filter.addEventListener(
+      "click",
+      () => {
+
+        const categoria =
+          filter.dataset.category;
+
+        filters.forEach(f => {
+          f.classList.remove("active");
+        });
+
+        filter.classList.add("active");
+
+        caseCards.forEach(card => {
+
+          const mostrar =
+            categoria === "all" ||
+            card.dataset.category === categoria;
+
+          card.style.display =
+            mostrar ? "" : "none";
+        });
+      }
+    );
+  });
+
+
+  /* =======================================================
+     MENÚ MÓVIL
+     ======================================================= */
+
+  if (menuToggle && mainNav) {
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    menuToggle.addEventListener(
+      "click",
+      () => {
+
+        const abierto =
+          mainNav.classList.toggle("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          abierto ? "true" : "false"
+        );
+      }
+    );
+
+    mainNav
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            mainNav.classList.remove("open");
+
+            menuToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+          }
+        );
+      });
+  }
+
+
+  console.log(
+    "Código Enigma cargado correctamente. Casos: 5"
+  );
+
+});
