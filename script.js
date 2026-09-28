@@ -1,389 +1,603 @@
+/* =========================================================
+   CÓDIGO ENIGMA
+   SCRIPT.JS
+   ========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  console.log("Código Enigma: iniciando...");
-
-  /* =====================================================
-     DATOS DE LOS CASOS
-  ===================================================== */
-
-  const casos = {
-
-    caso1: {
-      tag: "HOMICIDIO · CE-001",
-      title: "Todos mienten",
-      intro: "Sofía Herrera, 28 años, es encontrada sin vida en su apartamento a las 22:18.",
-      facts: [
-        "La vecina del 4B escuchó una discusión cerca de las 21:40.",
-        "El reloj de pared estaba detenido a las 21:52.",
-        "El teléfono de Sofía registró una llamada saliente a las 21:58.",
-        "La puerta estaba cerrada, pero no asegurada con la cadena interior.",
-        "Había lluvia intensa entre las 21:30 y las 22:10.",
-        "Una taza con dos marcas de labial estaba sobre la mesa."
-      ],
-      suspects: [
-        "Mateo Ruiz, exnovio.",
-        "Laura Gómez, amiga.",
-        "Daniel Rojas, vecino.",
-        "Camila Torres, compañera de trabajo.",
-        "Julián Pérez, hermano.",
-        "Valentina Cruz, vecina."
-      ],
-      timeline: [
-        "19:10 · Sofía termina su jornada.",
-        "20:35 · Una cámara registra a una persona entrando al edificio.",
-        "20:50 · Mateo afirma haber abandonado el lugar.",
-        "21:40 · La vecina escucha una discusión.",
-        "21:52 · El reloj de pared queda detenido.",
-        "21:58 · Se registra una llamada desde el teléfono de Sofía.",
-        "22:18 · Se solicita ayuda."
-      ],
-      solution: "La contradicción decisiva está en la cronología de las llamadas y las declaraciones."
-    },
-
-    caso2: {
-      tag: "DESAPARICIÓN · CE-002",
-      title: "La habitación 314",
-      intro: "Tomás Vega desaparece de un hotel durante una noche de tormenta.",
-      facts: [
-        "La tarjeta de la habitación fue utilizada a las 02:14.",
-        "La ventana tiene seguro interior.",
-        "El ascensor del piso fue registrado a las 02:17.",
-        "Una cámara dejó de grabar durante 43 segundos.",
-        "El teléfono de Tomás apareció apagado dentro de una mochila."
-      ],
-      suspects: [
-        "El recepcionista.",
-        "Una huésped de la habitación 316.",
-        "El gerente nocturno.",
-        "Un mensajero.",
-        "Un amigo de Tomás."
-      ],
-      timeline: [
-        "01:50 · Entra un mensajero.",
-        "02:14 · Se utiliza la tarjeta.",
-        "02:17 · El ascensor registra movimiento.",
-        "02:18 · La cámara pierde señal.",
-        "02:26 · Se registra una llamada.",
-        "06:30 · Se descubre la ausencia."
-      ],
-      solution: "La diferencia entre los registros electrónicos y los movimientos físicos crea una ventana de tiempo sospechosa."
-    },
-
-    caso3: {
-      tag: "HOMICIDIO · CE-003",
-      title: "El último mensaje",
-      intro: "El periodista Andrés León aparece muerto en su estudio.",
-      facts: [
-        "El computador quedó encendido.",
-        "El mensaje fue enviado desde una aplicación de escritorio.",
-        "El reloj del computador estaba 11 minutos adelantado.",
-        "Una libreta contiene tres iniciales.",
-        "La puerta del estudio se cerró desde fuera."
-      ],
-      suspects: [
-        "Su editor.",
-        "Una fuente anónima.",
-        "Su vecino.",
-        "Una colega.",
-        "Un familiar."
-      ],
-      timeline: [
-        "19:30 · Andrés se reúne con su editor.",
-        "20:45 · Regresa al estudio.",
-        "21:40 · Se escucha una discusión.",
-        "21:55 · El teléfono recibe un mensaje.",
-        "22:06 · Se registra actividad en el computador.",
-        "23:10 · Se encuentra el cuerpo."
-      ],
-      solution: "El supuesto mensaje posterior a la muerte no demuestra por sí solo que Andrés estuviera vivo."
-    },
-
-    caso4: {
-      tag: "ROBO · CE-004",
-      title: "La vitrina vacía",
-      intro: "Una pieza histórica desaparece de una galería durante una recepción.",
-      facts: [
-        "La alarma fue desactivada a las 19:42.",
-        "La vitrina no presenta daños.",
-        "El inventario fue actualizado a las 20:03.",
-        "Una fotografía tomada a las 19:55 muestra un reflejo extraño.",
-        "El guardia afirma que nunca abandonó la entrada."
-      ],
-      suspects: [
-        "El curador.",
-        "El guardia de seguridad.",
-        "Una restauradora.",
-        "Un coleccionista invitado."
-      ],
-      timeline: [
-        "19:30 · Comienza la recepción.",
-        "19:42 · Se desactiva la alarma.",
-        "19:55 · Se toma una fotografía.",
-        "20:03 · Se actualiza el inventario.",
-        "20:20 · Termina la recepción.",
-        "20:31 · Se descubre la ausencia."
-      ],
-      solution: "La fotografía contiene la pista decisiva."
-    },
-
-    caso5: {
-      tag: "DESAPARICIÓN · CE-005",
-      title: "El tren de las 23:17",
-      intro: "Clara Méndez desaparece después de una parada no programada.",
-      facts: [
-        "El tren salió a las 22:48.",
-        "A las 23:17 aparece una parada de 54 segundos.",
-        "La cámara muestra una persona con un paraguas rojo.",
-        "El boleto de Clara fue validado dos veces.",
-        "Un teléfono cercano se conectó a la red de la estación."
-      ],
-      suspects: [
-        "El conductor.",
-        "El supervisor de estación.",
-        "Un pasajero.",
-        "Un empleado de mantenimiento.",
-        "La persona del paraguas rojo."
-      ],
-      timeline: [
-        "22:48 · Salida.",
-        "23:10 · Clara envía un mensaje.",
-        "23:17 · Parada de 54 segundos.",
-        "23:18 · Cámara registra el andén.",
-        "23:24 · El teléfono deja de transmitir ubicación."
-      ],
-      solution: "La parada de las 23:17 es la anomalía central."
-    }
-
-  };
-
-
-  /* =====================================================
-     ELEMENTOS PRINCIPALES
-  ===================================================== */
+  /* =======================================================
+     ELEMENTOS
+     ======================================================= */
 
   const modal = document.getElementById("caseModal");
   const modalContent = document.getElementById("modalContent");
   const modalClose = document.getElementById("modalClose");
+
+  const menuToggle = document.getElementById("menuToggle");
   const mainNav = document.getElementById("mainNav");
 
-
-  /* =====================================================
-     ABRIR MODAL
-  ===================================================== */
-
-  function abrirCaso(id) {
-
-    console.log("Intentando abrir:", id);
-
-    const caso = casos[id];
-
-    if (!caso) {
-      console.error("Caso inexistente:", id);
-      return;
-    }
-
-    if (!modal || !modalContent) {
-      console.error("No se encontró el modal.");
-      return;
-    }
-
-    modalContent.innerHTML = "";
-
-    const contenido = document.createElement("div");
-
-    contenido.innerHTML = `
-      <p class="modal-kicker">${caso.tag}</p>
-
-      <h2 id="modalTitle">${caso.title}</h2>
-
-      <p>${caso.intro}</p>
-
-      <h3>Hechos confirmados</h3>
-
-      <div class="evidence">
-        ${caso.facts.map((dato, i) => `
-          <div>
-            <strong>Pista ${String(i + 1).padStart(2, "0")}</strong>
-            <br>
-            ${dato}
-          </div>
-        `).join("")}
-      </div>
-
-      <h3>Sospechosos</h3>
-
-      <ol>
-        ${caso.suspects.map(persona => `
-          <li>${persona}</li>
-        `).join("")}
-      </ol>
-
-      <h3>Línea temporal</h3>
-
-      <ul>
-        ${caso.timeline.map(evento => `
-          <li>${evento}</li>
-        `).join("")}
-      </ul>
-
-      <div class="solution">
-        <strong>🔐 Solución del expediente</strong>
-        <p>${caso.solution}</p>
-      </div>
-    `;
-
-    modalContent.appendChild(contenido);
-
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-
-    document.body.classList.add("modal-open");
-
-    console.log("Caso abierto correctamente:", id);
-  }
+  const filters = document.querySelectorAll(".filter");
+  const caseCards = document.querySelectorAll(".case-card");
 
 
-  /* =====================================================
-     CERRAR MODAL
-  ===================================================== */
+  /* =======================================================
+     CASOS
+     ======================================================= */
 
-  function cerrarModal() {
+  const casos = {
 
-    if (!modal) return;
+    /* =====================================================
+       CASO 1
+       ===================================================== */
 
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
+    1: {
 
-    document.body.classList.remove("modal-open");
+      code: "CE-001",
+      category: "HOMICIDIO",
+      title: "Todos mienten",
 
-    console.log("Modal cerrado");
-  }
+      intro:
+        "Sofía Herrera aparece sin vida en su apartamento. La puerta estaba cerrada, seis personas aseguran haber estado lejos del lugar y una llamada telefónica parece colocar a alguien en el sitio equivocado.",
 
+      victim: "Sofía Herrera",
+      date: "14 de marzo de 2026",
+      place: "Apartamento 4A",
+      difficulty: "Alta",
 
-  /* =====================================================
-     UN SOLO CONTROLADOR DE CLICS
-  ===================================================== */
+      story:
+        "A las 22:18, la policía recibió una llamada desde el apartamento 4A. Sofía Herrera, de 31 años, fue encontrada sin vida en la sala. No había señales evidentes de entrada forzada. El edificio tenía cámaras en los pasillos y ascensores, pero una de las cámaras presentó una interrupción de varios minutos. Durante las primeras entrevistas, todos los sospechosos ofrecieron una explicación aparentemente coherente. El problema apareció cuando sus versiones comenzaron a compararse entre sí.",
 
-  document.addEventListener("click", (e) => {
+      clues: [
 
-    /* -------------------------
-       ABRIR CASO
-    ------------------------- */
+        {
+          title: "El reloj detenido",
+          text:
+            "El reloj de pared de la sala estaba detenido exactamente a las 21:52. La policía inicialmente tomó esa hora como referencia, pero no se encontró ninguna evidencia que demostrara que el reloj se detuvo durante el incidente."
+        },
 
-    const botonCaso = e.target.closest(".open-case");
+        {
+          title: "La llamada de las 21:58",
+          text:
+            "El teléfono de Sofía registra una llamada entrante a las 21:58 que duró 47 segundos. La persona que llamó asegura que Sofía contestó personalmente."
+        },
 
-    if (botonCaso) {
+        {
+          title: "La cadena de seguridad",
+          text:
+            "La puerta principal estaba cerrada y la cadena de seguridad estaba colocada. Sin embargo, la cadena podía colocarse desde el interior mientras la puerta permanecía parcialmente abierta."
+        },
 
-      e.preventDefault();
-      e.stopPropagation();
+        {
+          title: "La lluvia",
+          text:
+            "Había llovido desde las 20:40. En el pasillo no había huellas mojadas, pero cerca del balcón se encontró una pequeña marca de humedad."
+        },
 
-      const id = botonCaso.dataset.case;
+        {
+          title: "Dos marcas de lápiz labial",
+          text:
+            "Una taza tenía dos marcas diferentes de lápiz labial. Una coincidía con Sofía. La otra no pudo ser identificada inmediatamente."
+        },
 
-      abrirCaso(id);
+        {
+          title: "El ascensor",
+          text:
+            "El ascensor registró un viaje hasta el cuarto piso a las 20:37. El sistema no identifica quién utilizó la tarjeta de acceso durante ese trayecto."
+        },
 
-      return;
-    }
+        {
+          title: "La cámara",
+          text:
+            "La cámara del pasillo dejó de grabar entre las 20:35 y las 20:41. El sistema indica que la interrupción fue manual."
+        },
 
+        {
+          title: "La nota",
+          text:
+            "Sobre el escritorio había una nota escrita a mano: 'No confíes en quien llegue primero'. No se pudo determinar cuándo fue escrita."
+        },
 
-    /* -------------------------
-       CERRAR MODAL
-    ------------------------- */
+        {
+          title: "El recibo",
+          text:
+            "Un recibo de una cafetería cercana marca las 20:51. El recibo fue encontrado dentro de una chaqueta perteneciente a uno de los sospechosos."
+        },
 
-    if (
-      e.target === modal ||
-      e.target.classList.contains("modal-backdrop") ||
-      e.target.closest(".modal-close")
-    ) {
-
-      e.preventDefault();
-
-      cerrarModal();
-
-      return;
-    }
-
-
-    /* -------------------------
-       FILTROS
-    ------------------------- */
-
-    const botonFiltro = e.target.closest(".filter");
-
-    if (botonFiltro) {
-
-      e.preventDefault();
-
-      const filtro = botonFiltro.dataset.filter;
-
-      console.log("Filtro seleccionado:", filtro);
-
-      document.querySelectorAll(".filter").forEach((boton) => {
-        boton.classList.remove("active");
-      });
-
-      botonFiltro.classList.add("active");
-
-      document.querySelectorAll(".case-card").forEach((card) => {
-
-        const categoria = card.dataset.category;
-
-        if (filtro === "todos" || categoria === filtro) {
-          card.style.display = "";
-        } else {
-          card.style.display = "none";
+        {
+          title: "La batería",
+          text:
+            "El teléfono de Sofía tenía 18% de batería a las 22:18. El registro de llamadas no coincide perfectamente con el historial de uso de la aplicación de mensajería."
         }
 
-      });
+      ],
 
-      return;
-    }
+      suspects: [
+
+        {
+          name: "Mateo Ruiz",
+          role: "Pareja de Sofía",
+          text:
+            "Afirma que salió del edificio a las 20:20 y que no volvió esa noche. Dice haber pasado la mayor parte de la noche en un restaurante."
+        },
+
+        {
+          name: "Laura Gómez",
+          role: "Amiga cercana",
+          text:
+            "Reconoce haber visitado a Sofía esa tarde, pero asegura que abandonó el edificio antes de las 20:00."
+        },
+
+        {
+          name: "Daniel Rojas",
+          role: "Vecino del 4B",
+          text:
+            "Escuchó una discusión cerca de las 21:40. Afirma que no salió de su apartamento."
+        },
+
+        {
+          name: "Camila Torres",
+          role: "Compañera de trabajo",
+          text:
+            "Dice haber hablado con Sofía por teléfono a las 21:58 y asegura que la voz de Sofía sonaba normal."
+        },
+
+        {
+          name: "Julián Pérez",
+          role: "Repartidor",
+          text:
+            "Su vehículo aparece registrado cerca del edificio alrededor de las 20:50. Afirma que solamente realizó una entrega."
+        },
+
+        {
+          name: "Valentina Cruz",
+          role: "Vecina del edificio",
+          text:
+            "Asegura haber visto a una persona abandonar el edificio alrededor de las 21:10."
+        }
+
+      ],
+
+      timeline: [
+
+        ["19:10", "Sofía recibe una visita."],
+        ["20:20", "Mateo asegura abandonar el edificio."],
+        ["20:35", "La cámara del cuarto piso deja de registrar."],
+        ["20:37", "El ascensor registra un viaje al cuarto piso."],
+        ["20:41", "La cámara vuelve a funcionar."],
+        ["20:51", "Se registra el recibo de una cafetería."],
+        ["21:10", "Una vecina asegura haber visto salir a alguien."],
+        ["21:40", "Daniel afirma haber escuchado una discusión."],
+        ["21:52", "El reloj de la sala aparece detenido."],
+        ["21:58", "Sofía recibe una llamada."],
+        ["22:18", "La policía recibe la llamada de emergencia."]
+      ],
+
+      quotes: [
+
+        [
+          "Yo salí mucho antes de que ocurriera cualquier cosa.",
+          "Mateo Ruiz"
+        ],
+
+        [
+          "La escuché perfectamente. Era Sofía quien hablaba conmigo.",
+          "Camila Torres"
+        ],
+
+        [
+          "No salí de mi apartamento en toda la noche.",
+          "Daniel Rojas"
+        ],
+
+        [
+          "Vi a alguien bajar por las escaleras, pero no pude verle la cara.",
+          "Valentina Cruz"
+        ]
+
+      ],
+
+      questions: [
+
+        "¿Qué evidencia permite establecer una hora real del incidente?",
+        "¿Puede la llamada de las 21:58 demostrar que Sofía seguía con vida?",
+        "¿Quién pudo manipular las cámaras?",
+        "¿Qué testimonios dependen de una hora que podría ser incorrecta?"
+      ],
+
+      solution:
+        "La clave del expediente no está en una única pista, sino en la cronología. El reloj detenido no demuestra la hora del incidente. La llamada tampoco demuestra necesariamente que Sofía estuviera utilizando personalmente el teléfono. La interrupción manual de la cámara introduce una ventana de tiempo que debe analizarse por separado. El expediente está diseñado para mostrar que una conclusión basada en una sola evidencia puede resultar engañosa. La reconstrucción correcta requiere comparar registros independientes y separar hechos comprobados de declaraciones."
+    },
 
 
-    /* -------------------------
-       MENÚ MÓVIL
-    ------------------------- */
+    /* =====================================================
+       CASO 2
+       ===================================================== */
 
-    const botonMenu = e.target.closest("#menuBtn");
+    2: {
 
-    if (botonMenu) {
+      code: "CE-002",
+      category: "DESAPARICIÓN",
+      title: "La habitación 314",
 
-      e.preventDefault();
+      intro:
+        "Tomás Vega desaparece de un hotel durante una tormenta. La tarjeta de su habitación registra un movimiento, el ascensor registra otro y una cámara deja de funcionar durante exactamente 43 segundos.",
 
-      if (mainNav) {
-        mainNav.classList.toggle("open");
-      }
+      victim: "Tomás Vega",
+      date: "22 de abril de 2026",
+      place: "Hotel Mirador",
+      difficulty: "Alta",
 
-      return;
-    }
+      story:
+        "Tomás Vega había llegado al Hotel Mirador la tarde del 22 de abril. A las 06:30 de la mañana siguiente, su habitación fue encontrada vacía. Su equipaje seguía dentro, pero su teléfono estaba en una mochila. La noche estuvo marcada por una tormenta eléctrica que produjo varios problemas técnicos en el edificio. La investigación descubrió una secuencia de registros digitales que parecía imposible de reconciliar.",
 
-  });
+      clues: [
+
+        {
+          title: "La tarjeta de habitación",
+          text:
+            "La tarjeta asignada a la habitación 314 registra una apertura a las 02:14."
+        },
+
+        {
+          title: "El ascensor",
+          text:
+            "El ascensor registra un viaje desde el tercer piso hasta el vestíbulo a las 02:17."
+        },
+
+        {
+          title: "La cámara",
+          text:
+            "La cámara del pasillo dejó de registrar durante exactamente 43 segundos a las 02:18."
+        },
+
+        {
+          title: "La ventana",
+          text:
+            "La ventana de la habitación estaba cerrada y bloqueada desde el interior."
+        },
+
+        {
+          title: "El teléfono",
+          text:
+            "El teléfono de Tomás permaneció dentro de una mochila durante toda la madrugada."
+        },
+
+        {
+          title: "La llave maestra",
+          text:
+            "El registro de mantenimiento muestra que una llave maestra fue utilizada a las 02:09."
+        },
+
+        {
+          title: "Sensor de movimiento",
+          text:
+            "El sensor del pasillo detectó movimiento a las 02:19."
+        },
+
+        {
+          title: "La llamada interna",
+          text:
+            "Una llamada desde la extensión de recepción fue registrada a las 02:26."
+        },
+
+        {
+          title: "La tormenta",
+          text:
+            "Una descarga eléctrica provocó pequeños cortes de energía en diferentes sistemas del hotel."
+        },
+
+        {
+          title: "El vehículo",
+          text:
+            "Una cámara exterior captó un vehículo de mensajería después de las 02:30."
+        }
+
+      ],
+
+      suspects: [
+
+        {
+          name: "Elena Vargas",
+          role: "Recepcionista",
+          text:
+            "Trabajaba durante el turno nocturno y tenía acceso al sistema de tarjetas."
+        },
+
+        {
+          name: "Marco Silva",
+          role: "Huésped 316",
+          text:
+            "Asegura que no abandonó su habitación durante la tormenta."
+        },
+
+        {
+          name: "Ricardo León",
+          role: "Gerente nocturno",
+          text:
+            "Tenía acceso a las llaves maestras y a los registros técnicos."
+        },
+
+        {
+          name: "Samuel Ortiz",
+          role: "Mensajero",
+          text:
+            "Su vehículo aparece registrado cerca del hotel después de las 02:30."
+        },
+
+        {
+          name: "Diego Vega",
+          role: "Amigo de Tomás",
+          text:
+            "Sabía que Tomás estaba alojado en la habitación 314."
+        }
+
+      ],
+
+      timeline: [
+
+        ["01:50", "Tomás aparece por última vez en el registro del hotel."],
+        ["02:09", "Se utiliza una llave maestra."],
+        ["02:14", "Se registra la apertura de la habitación 314."],
+        ["02:17", "El ascensor baja al vestíbulo."],
+        ["02:18", "La cámara pierde señal."],
+        ["02:19", "El sensor detecta movimiento."],
+        ["02:26", "Se registra una llamada interna."],
+        ["02:30", "La tormenta provoca otro corte parcial."],
+        ["02:34", "Una cámara exterior registra un vehículo."],
+        ["06:30", "El personal descubre la habitación vacía."]
+      ],
+
+      quotes: [
+
+        [
+          "La tarjeta de Tomás fue utilizada después de que él se retirara.",
+          "Elena Vargas"
+        ],
+
+        [
+          "Durante la tormenta no vi a nadie salir.",
+          "Marco Silva"
+        ],
+
+        [
+          "La llave maestra estaba bajo control del personal autorizado.",
+          "Ricardo León"
+        ],
+
+        [
+          "Mi vehículo estuvo allí, pero no significa que yo entrara al hotel.",
+          "Samuel Ortiz"
+        ]
+
+      ],
+
+      questions: [
+
+        "¿Quién pudo utilizar la llave maestra a las 02:09?",
+        "¿La apertura de la habitación a las 02:14 fue realizada por Tomás?",
+        "¿Qué ocurrió durante los 43 segundos sin cámara?",
+        "¿Qué registros deben compararse para reconstruir la secuencia?"
+      ],
+
+      solution:
+        "La ventana crítica está entre las 02:09 y las 02:26. La llave maestra aparece antes que la tarjeta de habitación y la interrupción de cámara ocurre después. Ninguno de estos datos identifica por sí solo a una persona. La solución requiere cruzar los registros de acceso, ascensor, sensor, cámaras y llamadas. La historia está diseñada para que el investigador no confunda un registro digital con una identificación personal."
+    },
 
 
-  /* =====================================================
-     ESC PARA CERRAR
-  ===================================================== */
+    /* =====================================================
+       CASO 3
+       ===================================================== */
 
-  document.addEventListener("keydown", (e) => {
+    3: {
 
-    if (e.key === "Escape") {
-      cerrarModal();
-    }
+      code: "CE-003",
+      category: "HOMICIDIO",
+      title: "El último mensaje",
 
-  });
+      intro:
+        "Andrés León parece haber enviado un mensaje a las 22:04. Sin embargo, el ordenador desde el que se envió tenía el reloj adelantado once minutos.",
+
+      victim: "Andrés León",
+      date: "8 de mayo de 2026",
+      place: "Estudio privado",
+      difficulty: "Muy alta",
+
+      story:
+        "Andrés León trabajaba como periodista independiente. La noche del 8 de mayo fue encontrado sin vida en su estudio. Su ordenador estaba encendido y tenía abierta una aplicación de mensajería. Un mensaje enviado a las 22:04 parecía ser su última comunicación. La investigación informática reveló que el reloj del ordenador no estaba sincronizado correctamente.",
+
+      clues: [
+
+        {
+          title: "El mensaje",
+          text:
+            "Un mensaje aparece registrado a las 22:04 desde la aplicación instalada en el ordenador."
+        },
+
+        {
+          title: "El reloj",
+          text:
+            "El reloj del ordenador estaba adelantado exactamente 11 minutos."
+        },
+
+        {
+          title: "El teléfono",
+          text:
+            "No existe un registro equivalente de envío desde el teléfono móvil de Andrés."
+        },
+
+        {
+          title: "Las iniciales",
+          text:
+            "El mensaje termina con unas iniciales que Andrés utilizaba habitualmente."
+        },
+
+        {
+          title: "La puerta",
+          text:
+            "La puerta principal estaba cerrada desde el exterior cuando llegó la policía."
+        },
+
+        {
+          title: "El documento",
+          text:
+            "Un documento fue abierto en el ordenador a las 21:57 según el registro del sistema."
+        },
+
+        {
+          title: "La cámara",
+          text:
+            "Una cámara cercana registra movimiento frente al edificio a las 20:44."
+        },
+
+        {
+          title: "La discusión",
+          text:
+            "Un vecino asegura haber escuchado una discusión aproximadamente a las 21:40."
+        },
+
+        {
+          title: "Actividad del teclado",
+          text:
+            "El sistema registra actividad del teclado a las 22:15, aunque el reloj estaba desfasado."
+        },
+
+        {
+          title: "El archivo",
+          text:
+            "El último documento guardado contiene información que solamente unas pocas personas conocían."
+        }
+
+      ],
+
+      suspects: [
+
+        {
+          name: "Natalia Pérez",
+          role: "Editora",
+          text:
+            "Trabajaba directamente con Andrés y conocía parte del contenido del documento."
+        },
+
+        {
+          name: "Fuente anónima",
+          role: "Informante",
+          text:
+            "Había intercambiado mensajes con Andrés durante las semanas anteriores."
+        },
+
+        {
+          name: "Carlos Méndez",
+          role: "Vecino",
+          text:
+            "Escuchó la discusión, pero asegura no haber visto quién estaba dentro."
+        },
+
+        {
+          name: "Jorge Salas",
+          role: "Compañero",
+          text:
+            "Sabía que Andrés estaba preparando una publicación importante."
+        },
+
+        {
+          name: "Marina León",
+          role: "Familiar",
+          text:
+            "Tenía conocimiento de la rutina de Andrés y podía entrar al edificio."
+        }
+
+      ],
+
+      timeline: [
+
+        ["19:30", "Andrés llega al estudio."],
+        ["20:44", "Una cámara registra movimiento frente al edificio."],
+        ["21:40", "Un vecino escucha una discusión."],
+        ["21:46", "Se modifica un documento."],
+        ["21:57", "Se abre un archivo en el ordenador."],
+        ["22:04", "El ordenador registra el envío del mensaje."],
+        ["22:15", "Se registra actividad del teclado."],
+        ["22:30", "Un vecino abandona el edificio."],
+        ["23:10", "La policía llega al lugar."]
+      ],
+
+      quotes: [
+
+        [
+          "Ese mensaje sonaba exactamente como algo que él escribiría.",
+          "Natalia Pérez"
+        ],
+
+        [
+          "Escuché dos voces, pero no pude distinguirlas.",
+          "Carlos Méndez"
+        ],
+
+        [
+          "Andrés sabía que estaba trabajando en algo delicado.",
+          "Jorge Salas"
+        ],
+
+        [
+          "Yo no utilicé su ordenador esa noche.",
+          "Marina León"
+        ]
+
+      ],
+
+      questions: [
+
+        "¿Cuál era la hora real del mensaje?",
+        "¿Puede el estilo de escritura demostrar quién escribió algo?",
+        "¿Quién conocía el contenido del documento?",
+        "¿La actividad del ordenador demuestra presencia física?"
+      ],
+
+      solution:
+        "El reloj del ordenador estaba adelantado 11 minutos. Por eso, cualquier reconstrucción debe corregir primero todas las horas registradas por ese dispositivo. La actividad informática tampoco demuestra automáticamente quién estaba frente al ordenador. El investigador debe separar identidad digital, presencia física y contenido de los mensajes. La pista más importante no es necesariamente el mensaje, sino la diferencia entre los relojes."
+    },
 
 
-  /* =====================================================
-     EVITAR ERROR SI EL MODAL NO EXISTE
-  ===================================================== */
+    /* =====================================================
+       CASO 4
+       ===================================================== */
 
-  if (!modal) {
-    console.error("Código Enigma: #caseModal no existe.");
-  }
+    4: {
 
-  if (!modalContent) {
-    console.error("Código Enigma: #modalContent no existe.");
-  }
+      code: "CE-004",
+      category: "ROBO",
+      title: "La vitrina vacía",
 
-  console.log("Código Enigma: sistema listo correctamente.");
+      intro:
+        "Una pieza desaparece de la Galería San Jerónimo sin que la vitrina presente señales de haber sido forzada. Una fotografía tomada minutos antes contiene una reflexión inesperada.",
 
-});
+      victim: "Galería San Jerónimo",
+      date: "19 de junio de 2026",
+      place: "Sala principal",
+      difficulty: "Alta",
+
+      story:
+        "La Galería San Jerónimo cerró sus puertas a las 19:30. A las 20:31, el personal descubrió que una pieza de colección había desaparecido. La vitrina seguía intacta. El sistema de alarma había sido desactivado y posteriormente activado de nuevo. Cuatro personas tenían diferentes niveles de acceso al edificio.",
+
+      clues: [
+
+        {
+          title: "La alarma",
+          text:
+            "El sistema de alarma fue desactivado a las 19:42."
+        },
+
+        {
+          title: "La vitrina",
+          text:
+            "La vitrina no presenta daños ni marcas visibles de manipulación."
+        },
+
+        {
+          title: "El inventario",
+          text:
+            "El inventario digital fue modificado a las 20:03."
+        },
+
+        {
+          title:
