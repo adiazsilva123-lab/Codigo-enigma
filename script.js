@@ -1,417 +1,403 @@
 const cases = {
-
   caso1: {
-    category: "HOMICIDIO",
+    tag: "HOMICIDIO · CE-001",
     title: "Todos mienten",
-    intro:
-      "Laura Méndez, de 34 años, es encontrada sin vida en su apartamento a las 22:40. La puerta principal estaba cerrada y no había señales claras de entrada forzada. Durante las horas anteriores, seis personas tuvieron contacto con ella o estuvieron cerca del edificio.",
-
+    intro: "Sofía Herrera, 28 años, es encontrada sin vida en su apartamento a las 22:18. La puerta principal no presenta daños y seis personas tuvieron contacto con ella durante las horas anteriores.",
     facts: [
-      "La víctima fue encontrada en la sala de su apartamento.",
-      "El teléfono de Laura estaba sobre la mesa.",
-      "Una taza de café todavía estaba caliente.",
-      "El reloj de pared estaba detenido a las 21:17.",
-      "No había señales de que faltaran objetos de gran valor."
+      "La vecina del 4B escuchó una discusión cerca de las 21:40.",
+      "El reloj de pared estaba detenido a las 21:52.",
+      "El teléfono de Sofía registró una llamada saliente a las 21:58.",
+      "La puerta estaba cerrada, pero no asegurada con la cadena interior.",
+      "Había lluvia intensa entre las 21:30 y las 22:10.",
+      "Una taza con dos marcas de labial estaba sobre la mesa."
     ],
-
     suspects: [
-      "<strong>Daniel:</strong> ex pareja de Laura. Afirma que se fue del edificio a las 20:30.",
-      "<strong>Marina:</strong> vecina del apartamento 315. Dice haber escuchado una discusión a las 21:00.",
-      "<strong>Julián:</strong> compañero de trabajo. Asegura que habló con Laura por teléfono a las 21:35.",
-      "<strong>Claudia:</strong> hermana de la víctima. Afirma que nunca estuvo en el edificio esa noche.",
-      "<strong>Raúl:</strong> encargado de seguridad. Dice que nadie entró después de las 20:00.",
-      "<strong>Esteban:</strong> amigo de Laura. Asegura que recibió un mensaje de ella a las 22:05."
+      "Mateo Ruiz, exnovio. Afirma que se marchó a las 20:50 y que no regresó.",
+      "Laura Gómez, amiga. Dice que habló con Sofía por teléfono a las 21:55.",
+      "Daniel Rojas, vecino. Dice que permaneció en su apartamento toda la noche.",
+      "Camila Torres, compañera de trabajo. Afirma que vio a Sofía por última vez a las 19:10.",
+      "Julián Pérez, hermano. Dice que llegó al edificio después de las 22:20.",
+      "Valentina Cruz, vecina del 3B. Asegura que no salió de casa durante la tormenta."
     ],
-
     timeline: [
-      "<strong>20:00:</strong> Raúl registra la última entrada conocida.",
-      "<strong>20:30:</strong> Daniel afirma haber abandonado el edificio.",
-      "<strong>21:00:</strong> Marina escucha una discusión.",
-      "<strong>21:17:</strong> el reloj de la sala queda detenido.",
-      "<strong>21:35:</strong> Julián asegura haber hablado con Laura.",
-      "<strong>22:05:</strong> Esteban recibe un mensaje.",
-      "<strong>22:40:</strong> se descubre el cuerpo."
+      "19:10 · Sofía termina su jornada.",
+      "20:35 · Una cámara registra a una persona entrando al edificio.",
+      "20:50 · Mateo afirma haber abandonado el lugar.",
+      "21:40 · La vecina escucha una discusión.",
+      "21:52 · El reloj de pared queda detenido.",
+      "21:58 · Se registra una llamada desde el teléfono de Sofía.",
+      "22:18 · Se solicita ayuda."
     ],
-
-    solution:
-      "La contradicción principal está en los tiempos. La declaración de Julián es incompatible con la evidencia de la escena. El teléfono de Laura estaba sobre la mesa y no existe registro que confirme una llamada a las 21:35. La pista más importante es comparar los testimonios con los objetos y registros físicos, en lugar de aceptar las declaraciones como hechos."
+    solution: "La contradicción decisiva está en la versión de Laura. Ella afirma que habló con Sofía a las 21:55, pero el registro disponible muestra que la llamada de las 21:58 fue saliente desde el teléfono de Sofía y no coincide con el contacto que Laura describe. La investigación ficticia establece que Laura estuvo en el apartamento y mintió sobre la hora para ocultar la discusión."
   },
-
 
   caso2: {
-    category: "DESAPARICIÓN",
+    tag: "DESAPARICIÓN · CE-002",
     title: "La habitación 314",
-    intro:
-      "Andrés Salazar desaparece durante una noche de tormenta mientras se hospedaba en el Hotel Central. Su habitación estaba registrada como ocupada y la puerta no mostraba señales de haber sido forzada.",
-
+    intro: "Tomás Vega reserva una habitación de hotel para una sola noche. A las 06:30, el personal descubre que no está. Su equipaje sigue dentro, la ventana está cerrada y el registro de tarjetas muestra movimientos extraños.",
     facts: [
-      "La habitación 314 fue registrada a nombre de Andrés.",
-      "La tarjeta de acceso fue utilizada a las 22:18.",
-      "Una cámara del pasillo dejó de grabar durante varios minutos.",
-      "La ventana estaba cerrada desde el interior.",
-      "La maleta de Andrés permanecía dentro de la habitación."
+      "La tarjeta de la habitación fue utilizada a las 02:14.",
+      "La ventana tiene seguro interior.",
+      "El ascensor del piso fue registrado a las 02:17.",
+      "Una cámara del pasillo dejó de grabar durante 43 segundos.",
+      "El teléfono de Tomás apareció apagado dentro de una mochila.",
+      "El recepcionista recuerda haber recibido una llamada desde la 314."
     ],
-
     suspects: [
-      "<strong>Elena:</strong> recepcionista del turno nocturno.",
-      "<strong>Tomás:</strong> huésped de la habitación 312.",
-      "<strong>Gabriel:</strong> encargado de mantenimiento.",
-      "<strong>Rosa:</strong> amiga de Andrés.",
-      "<strong>Víctor:</strong> administrador del hotel."
+      "El recepcionista de turno, que tenía acceso maestro.",
+      "Una huésped de la 316, que conocía a Tomás.",
+      "El gerente nocturno, que revisaba las cámaras.",
+      "Un mensajero que entró al hotel a las 01:50.",
+      "Un amigo de Tomás que aseguró no conocer el hotel."
     ],
-
     timeline: [
-      "<strong>21:45:</strong> Andrés entra al hotel.",
-      "<strong>22:00:</strong> sube hacia el tercer piso.",
-      "<strong>22:18:</strong> se utiliza una tarjeta en la habitación 314.",
-      "<strong>22:21:</strong> la cámara del pasillo deja de registrar imagen.",
-      "<strong>22:27:</strong> vuelve la señal de la cámara.",
-      "<strong>23:10:</strong> Rosa pregunta por Andrés en recepción."
+      "01:50 · Entra un mensajero.",
+      "02:14 · Se usa la tarjeta de la 314.",
+      "02:17 · El ascensor registra movimiento.",
+      "02:18 · La cámara pierde señal durante 43 segundos.",
+      "02:26 · Se registra una llamada desde la 314.",
+      "06:30 · El personal descubre la ausencia."
     ],
-
-    solution:
-      "La pista central es la combinación entre el registro de la tarjeta y la interrupción de la cámara. Una persona pudo acceder a la habitación durante el intervalo en que el sistema dejó de registrar imágenes. El caso queda construido alrededor de esa ventana de tiempo, mientras que la maleta y la ventana permiten descartar algunas hipótesis iniciales."
+    solution: "La solución gira alrededor de la diferencia entre acceso físico y registro electrónico. La tarjeta fue usada, pero el movimiento del ascensor y la interrupción de la cámara crean una ventana de tiempo en la que alguien pudo entrar y salir sin quedar registrado claramente."
   },
-
 
   caso3: {
-    category: "HOMICIDIO",
+    tag: "HOMICIDIO · CE-003",
     title: "El último mensaje",
-    intro:
-      "El periodista Nicolás Vega aparece muerto en su estudio. Horas antes había informado a sus compañeros que estaba investigando una historia delicada. Su teléfono contiene un mensaje aparentemente enviado después de su muerte.",
-
+    intro: "El periodista Andrés León aparece muerto en su estudio. Horas antes había escrito que estaba a punto de publicar una investigación. Su teléfono conserva un mensaje enviado aparentemente después de la hora estimada de muerte.",
     facts: [
-      "El cuerpo fue encontrado a las 23:20.",
-      "El informe inicial sitúa la muerte alrededor de las 22:30.",
-      "El teléfono estaba desbloqueado.",
-      "Se encontró un mensaje enviado a las 22:52.",
-      "El ordenador permanecía encendido."
+      "El computador quedó encendido.",
+      "El mensaje fue enviado desde una aplicación de escritorio sincronizada.",
+      "El reloj del computador estaba 11 minutos adelantado.",
+      "Una libreta contiene tres iniciales.",
+      "La puerta del estudio se cerró desde fuera.",
+      "El historial muestra una sesión abierta a las 22:06."
     ],
-
     suspects: [
-      "<strong>Paula:</strong> editora del periódico.",
-      "<strong>Mateo:</strong> fotógrafo que trabajaba con Nicolás.",
-      "<strong>Sergio:</strong> fuente de una investigación.",
-      "<strong>Valentina:</strong> vecina del edificio.",
-      "<strong>Óscar:</strong> antiguo compañero de trabajo."
+      "Su editor, que conocía la investigación.",
+      "Una fuente anónima.",
+      "Su vecino, con quien discutió esa tarde.",
+      "Una colega que tenía acceso al estudio.",
+      "Un familiar que esperaba una llamada."
     ],
-
     timeline: [
-      "<strong>21:50:</strong> Nicolás llega a su estudio.",
-      "<strong>22:10:</strong> realiza una llamada.",
-      "<strong>22:30:</strong> hora aproximada de muerte.",
-      "<strong>22:52:</strong> aparece enviado el último mensaje.",
-      "<strong>23:20:</strong> encuentran el cuerpo."
+      "19:30 · Andrés se reúne con su editor.",
+      "20:45 · Regresa al estudio.",
+      "21:40 · Se escucha una discusión.",
+      "21:55 · El teléfono recibe un mensaje.",
+      "22:06 · Se registra actividad en el computador.",
+      "23:10 · Se encuentra el cuerpo."
     ],
-
-    solution:
-      "El mensaje de las 22:52 es una pista importante porque aparece después de la hora estimada de muerte. Sin embargo, que un mensaje aparezca enviado a determinada hora no demuestra por sí solo quién lo escribió. El teléfono, el ordenador y los registros digitales deben analizarse conjuntamente."
+    solution: "El supuesto mensaje posterior a la muerte no demuestra por sí solo que Andrés estuviera vivo. El computador tenía el reloj adelantado y la aplicación permanecía sincronizada. La pista clave es que alguien con acceso al estudio conocía la configuración del equipo."
   },
-
 
   caso4: {
-    category: "ROBO",
+    tag: "ROBO · CE-004",
     title: "La vitrina vacía",
-    intro:
-      "Una pequeña galería privada descubre que una pieza histórica ha desaparecido de una vitrina. El sistema de seguridad no registró una alarma y cuatro personas tuvieron acceso al edificio durante el día.",
-
+    intro: "Una galería privada descubre que una pieza histórica desapareció durante una recepción. La alarma nunca se activó y cuatro personas tuvieron acceso a la zona restringida.",
     facts: [
-      "La pieza desaparecida estaba dentro de una vitrina cerrada.",
-      "No había cristales rotos.",
-      "El inventario fue revisado esa misma mañana.",
-      "Una cámara apunta directamente hacia la vitrina.",
-      "Durante 11 minutos la cámara mostró una imagen congelada."
+      "La alarma fue desactivada a las 19:42.",
+      "La vitrina no presenta daños.",
+      "El inventario fue actualizado a las 20:03.",
+      "Una fotografía tomada a las 19:55 muestra un reflejo extraño.",
+      "El guardia afirma que nunca abandonó la entrada.",
+      "La caja de transporte encontrada después no coincide con el tamaño de la pieza."
     ],
-
     suspects: [
-      "<strong>Adriana:</strong> directora de la galería.",
-      "<strong>Bruno:</strong> encargado de seguridad.",
-      "<strong>Camila:</strong> restauradora.",
-      "<strong>Diego:</strong> técnico encargado del sistema de cámaras."
+      "El curador de la exposición.",
+      "El guardia de seguridad.",
+      "Una restauradora.",
+      "Un coleccionista invitado."
     ],
-
     timeline: [
-      "<strong>09:00:</strong> se revisa el inventario.",
-      "<strong>10:30:</strong> llega Camila.",
-      "<strong>11:15:</strong> Diego revisa las cámaras.",
-      "<strong>12:04:</strong> aparece la interrupción de imagen.",
-      "<strong>12:15:</strong> vuelve la grabación normal.",
-      "<strong>16:40:</strong> se descubre la desaparición."
+      "19:30 · Comienza la recepción.",
+      "19:42 · Se desactiva la alarma.",
+      "19:55 · Se toma una fotografía.",
+      "20:03 · Se actualiza el inventario.",
+      "20:20 · Termina la recepción.",
+      "20:31 · Se descubre la ausencia."
     ],
-
-    solution:
-      "La anomalía más importante es la interrupción de la cámara durante 11 minutos. El robo no requiere romper la vitrina si alguien con acceso autorizado pudo abrirla. La investigación debe centrarse en quién tenía acceso, quién conocía el funcionamiento del sistema y quién estuvo presente durante ese intervalo."
+    solution: "La fotografía contiene la pista decisiva. El reflejo permite reconstruir que la vitrina ya estaba abierta antes de que terminara la recepción. La actualización del inventario a las 20:03 no fue una confirmación física de la pieza."
   },
 
-
   caso5: {
-    category: "DESAPARICIÓN",
+    tag: "DESAPARICIÓN · CE-005",
     title: "El tren de las 23:17",
-    intro:
-      "Una pasajera llamada Elena Ruiz desaparece después de abordar un tren nocturno. Según el registro, el tren debía continuar directamente hasta su destino, pero una cámara registra una parada inesperada.",
-
+    intro: "Clara Méndez sube a un tren nocturno y desaparece después de una parada no programada. El operador afirma que el tren no se detuvo en otra estación, pero una cámara cuenta una historia diferente.",
     facts: [
-      "Elena compró el boleto a las 20:12.",
-      "El tren salió a las 22:40.",
-      "Una cámara registra a Elena dentro del vagón.",
-      "El tren aparece detenido durante varios minutos.",
-      "El registro oficial no menciona una parada en ese punto."
+      "El tren salió a las 22:48.",
+      "A las 23:17 aparece una parada de 54 segundos en el sistema.",
+      "La cámara del andén muestra una persona con un paraguas rojo.",
+      "El boleto de Clara fue validado dos veces.",
+      "Un teléfono cercano se conectó a la red de la estación.",
+      "El conductor niega haber visto pasajeros bajar."
     ],
-
     suspects: [
-      "<strong>Héctor:</strong> conductor del tren.",
-      "<strong>Lucía:</strong> pasajera del mismo vagón.",
-      "<strong>Mario:</strong> trabajador de mantenimiento.",
-      "<strong>Nora:</strong> persona que esperaba en una estación cercana.",
-      "<strong>Samuel:</strong> acompañante que había hablado con Elena antes del viaje."
+      "El conductor.",
+      "El supervisor de estación.",
+      "Un pasajero sentado detrás de Clara.",
+      "Un empleado de mantenimiento.",
+      "La persona del paraguas rojo."
     ],
-
     timeline: [
-      "<strong>20:12:</strong> Elena compra el boleto.",
-      "<strong>22:40:</strong> sale el tren.",
-      "<strong>23:05:</strong> Elena aparece en la cámara del vagón.",
-      "<strong>23:17:</strong> el sistema registra una parada.",
-      "<strong>23:23:</strong> el tren vuelve a desplazarse.",
-      "<strong>00:10:</strong> Elena no aparece en el destino final."
+      "22:48 · Salida.",
+      "23:10 · Clara envía un mensaje.",
+      "23:17 · Parada de 54 segundos.",
+      "23:18 · Cámara registra el andén.",
+      "23:24 · El teléfono de Clara deja de transmitir ubicación.",
+      "00:02 · Se reporta la desaparición."
     ],
-
-    solution:
-      "La parada de las 23:17 es la pieza que permite reconstruir el caso. El registro oficial y la grabación no cuentan exactamente la misma historia. La investigación debe determinar por qué el tren se detuvo, quién tenía conocimiento de esa parada y qué ocurrió durante esos seis minutos."
+    solution: "La parada de 23:17 es la anomalía central. El sistema la registra aunque el conductor la niega. El boleto validado dos veces indica que Clara salió y volvió a entrar en algún momento, mientras que la cámara confirma presencia en el andén."
   }
-
 };
 
 
+/* =========================
+   EXPEDIENTES
+========================= */
 
-const modal = document.getElementById("caseModal");
-const modalContent = document.getElementById("modalContent");
-const modalClose = document.getElementById("modalClose");
+function abrirCaso(id) {
 
+  const caso = cases[id];
 
-
-function createList(items, className) {
-
-  return `
-    <ul class="${className}">
-      ${items.map(item => `<li>${item}</li>`).join("")}
-    </ul>
-  `;
-
-}
-
-
-
-function openCase(caseId) {
-
-  const currentCase = cases[caseId];
-
-  if (!currentCase) {
+  if (!caso) {
+    console.error("Caso no encontrado:", id);
     return;
   }
 
-  modalContent.innerHTML = `
+  const modal = document.getElementById("caseModal");
+  const contenido = document.getElementById("modalContent");
 
-    <p class="eyebrow">
-      EXPEDIENTE · ${currentCase.category}
-    </p>
+  if (!modal || !contenido) {
+    console.error("No se encontró el modal.");
+    return;
+  }
 
-    <h2 class="modal-title">
-      ${currentCase.title}
+  contenido.innerHTML = `
+    <p class="modal-kicker">${caso.tag}</p>
+
+    <h2 id="modalTitle">
+      ${caso.title}
     </h2>
 
-    <p class="modal-intro">
-      ${currentCase.intro}
+    <p>
+      ${caso.intro}
     </p>
 
+    <h3>
+      Hechos confirmados
+    </h3>
 
-    <div class="modal-section">
+    <div class="evidence">
 
-      <h3>
-        Hechos confirmados
-      </h3>
+      ${caso.facts.map((pista, indice) => `
+        <div>
+          <strong>
+            Pista ${String(indice + 1).padStart(2, "0")}
+          </strong>
 
-      ${createList(currentCase.facts, "clue-list")}
+          <br>
 
-    </div>
-
-
-    <div class="modal-section">
-
-      <h3>
-        Sospechosos
-      </h3>
-
-      ${createList(currentCase.suspects, "suspect-list")}
+          ${pista}
+        </div>
+      `).join("")}
 
     </div>
 
+    <h3>
+      Sospechosos y personas de interés
+    </h3>
 
-    <div class="modal-section">
+    <ol>
+      ${caso.suspects.map(persona => `
+        <li>
+          ${persona}
+        </li>
+      `).join("")}
+    </ol>
 
-      <h3>
-        Línea de tiempo
-      </h3>
+    <h3>
+      Línea temporal
+    </h3>
 
-      ${createList(currentCase.timeline, "timeline-list")}
+    <ul>
+      ${caso.timeline.map(evento => `
+        <li>
+          ${evento}
+        </li>
+      `).join("")}
+    </ul>
 
-    </div>
+    <div class="solution">
 
-
-    <div class="solution-box">
-
-      <h3>
-        🔎 Análisis del expediente
-      </h3>
+      <strong>
+        🔐 Solución del expediente
+      </strong>
 
       <p>
-        ${currentCase.solution}
+        ${caso.solution}
+      </p>
+
+      <p>
+        <strong>Nota:</strong>
+        La solución forma parte de la ficción del caso.
+        Puedes volver a revisar las pistas y comprobar tu teoría.
       </p>
 
     </div>
-
   `;
 
-
-  modal.classList.add("show");
+  modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
 
-  document.body.classList.add("modal-open");
-
-  modalClose.focus();
-
+  document.body.style.overflow = "hidden";
 }
 
 
+/* =========================
+   CERRAR EXPEDIENTE
+========================= */
 
-function closeCase() {
+function cerrarCaso() {
 
-  modal.classList.remove("show");
+  const modal = document.getElementById("caseModal");
 
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
 
-  document.body.classList.remove("modal-open");
-
+  document.body.style.overflow = "";
 }
 
 
+/* =========================
+   BOTONES DE CASOS
+========================= */
 
-document.querySelectorAll(".open-case").forEach(button => {
+document.addEventListener("DOMContentLoaded", function () {
 
-  button.addEventListener("click", () => {
+  document.querySelectorAll(".open-case").forEach(function (boton) {
 
-    const caseId = button.dataset.case;
+    boton.addEventListener("click", function () {
 
-    openCase(caseId);
+      abrirCaso(this.dataset.case);
+
+    });
 
   });
 
-});
 
+  /* =========================
+     BOTÓN CERRAR
+  ========================= */
 
+  const botonCerrar = document.getElementById("modalClose");
 
-modalClose.addEventListener("click", closeCase);
+  if (botonCerrar) {
 
-
-
-document.querySelector(".modal-backdrop").addEventListener(
-  "click",
-  closeCase
-);
-
-
-
-document.addEventListener("keydown", event => {
-
-  if (event.key === "Escape") {
-
-    closeCase();
+    botonCerrar.addEventListener("click", cerrarCaso);
 
   }
 
-});
+
+  /* =========================
+     FONDO DEL MODAL
+  ========================= */
+
+  const fondo = document.querySelector(".modal-backdrop");
+
+  if (fondo) {
+
+    fondo.addEventListener("click", cerrarCaso);
+
+  }
 
 
+  /* =========================
+     TECLA ESC
+  ========================= */
 
-const filters = document.querySelectorAll(".filter");
+  document.addEventListener("keydown", function (evento) {
 
-const caseCards = document.querySelectorAll(".case-card");
+    if (evento.key === "Escape") {
 
+      cerrarCaso();
 
+    }
 
-filters.forEach(filter => {
-
-  filter.addEventListener("click", () => {
-
-    const selected = filter.dataset.filter;
-
-
-    filters.forEach(item => {
-
-      item.classList.remove("active");
-
-    });
+  });
 
 
-    filter.classList.add("active");
+  /* =========================
+     FILTROS
+  ========================= */
 
+  const filtros = document.querySelectorAll(".filter");
 
-    caseCards.forEach(card => {
+  filtros.forEach(function (boton) {
 
-      const category = card.dataset.category;
+    boton.addEventListener("click", function () {
 
+      filtros.forEach(function (otro) {
 
-      if (
-        selected === "todos" ||
-        category === selected
-      ) {
+        otro.classList.remove("active");
 
-        card.classList.remove("hidden");
+      });
 
-      } else {
+      boton.classList.add("active");
 
-        card.classList.add("hidden");
+      const filtro = boton.dataset.filter;
 
-      }
+      document.querySelectorAll(".case-card").forEach(function (tarjeta) {
+
+        if (
+          filtro === "todos" ||
+          tarjeta.dataset.category === filtro
+        ) {
+
+          tarjeta.classList.remove("hidden");
+
+        } else {
+
+          tarjeta.classList.add("hidden");
+
+        }
+
+      });
 
     });
 
   });
 
-});
+
+  /* =========================
+     MENÚ MÓVIL
+  ========================= */
+
+  const menuBtn = document.getElementById("menuBtn");
+  const nav = document.getElementById("mainNav");
+
+  if (menuBtn && nav) {
+
+    menuBtn.addEventListener("click", function () {
+
+      nav.classList.toggle("open");
+
+    });
 
 
+    nav.querySelectorAll("a").forEach(function (enlace) {
 
-const menuBtn = document.getElementById("menuBtn");
+      enlace.addEventListener("click", function () {
 
-const mainNav = document.getElementById("mainNav");
+        nav.classList.remove("open");
 
+      });
 
-
-menuBtn.addEventListener("click", () => {
-
-  mainNav.classList.toggle("open");
-
-});
-
-
-
-mainNav.querySelectorAll("a").forEach(link => {
-
-  link.addEventListener("click", () => {
-
-    mainNav.classList.remove("open");
-
-  });
-
-});
-
-
-
-window.addEventListener("resize", () => {
-
-  if (window.innerWidth > 950) {
-
-    mainNav.classList.remove("open");
+    });
 
   }
 
