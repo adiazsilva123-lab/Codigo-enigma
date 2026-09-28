@@ -1,13 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  console.log("Código Enigma: JavaScript iniciado");
+  console.log("Código Enigma funcionando");
 
   const casos = {
-
     caso1: {
       tag: "HOMICIDIO · CE-001",
       title: "Todos mienten",
-      intro: "Sofía Herrera, 28 años, es encontrada sin vida en su apartamento a las 22:18. La puerta principal no presenta daños y seis personas tuvieron contacto con ella durante las horas anteriores.",
+      intro: "Sofía Herrera, 28 años, es encontrada sin vida en su apartamento a las 22:18.",
       facts: [
         "La vecina del 4B escuchó una discusión cerca de las 21:40.",
         "El reloj de pared estaba detenido a las 21:52.",
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Daniel Rojas, vecino.",
         "Camila Torres, compañera de trabajo.",
         "Julián Pérez, hermano.",
-        "Valentina Cruz, vecina del 3B."
+        "Valentina Cruz, vecina."
       ],
       timeline: [
         "19:10 · Sofía termina su jornada.",
@@ -33,23 +32,22 @@ document.addEventListener("DOMContentLoaded", function () {
         "21:58 · Se registra una llamada desde el teléfono de Sofía.",
         "22:18 · Se solicita ayuda."
       ],
-      solution: "La contradicción decisiva está en la cronología de las llamadas y las declaraciones. La investigación ficticia establece que Laura estuvo en el apartamento y mintió sobre la hora para ocultar la discusión."
+      solution: "La contradicción decisiva está en la cronología de las llamadas y las declaraciones."
     },
 
     caso2: {
       tag: "DESAPARICIÓN · CE-002",
       title: "La habitación 314",
-      intro: "Tomás Vega reserva una habitación de hotel para una sola noche. A las 06:30, el personal descubre que no está.",
+      intro: "Tomás Vega desaparece de un hotel durante una noche de tormenta.",
       facts: [
         "La tarjeta de la habitación fue utilizada a las 02:14.",
         "La ventana tiene seguro interior.",
         "El ascensor del piso fue registrado a las 02:17.",
-        "Una cámara del pasillo dejó de grabar durante 43 segundos.",
-        "El teléfono de Tomás apareció apagado dentro de una mochila.",
-        "El recepcionista recibió una llamada desde la habitación 314."
+        "Una cámara dejó de grabar durante 43 segundos.",
+        "El teléfono de Tomás apareció apagado dentro de una mochila."
       ],
       suspects: [
-        "El recepcionista de turno.",
+        "El recepcionista.",
         "Una huésped de la habitación 316.",
         "El gerente nocturno.",
         "Un mensajero.",
@@ -57,26 +55,25 @@ document.addEventListener("DOMContentLoaded", function () {
       ],
       timeline: [
         "01:50 · Entra un mensajero.",
-        "02:14 · Se utiliza la tarjeta de la habitación.",
+        "02:14 · Se utiliza la tarjeta.",
         "02:17 · El ascensor registra movimiento.",
         "02:18 · La cámara pierde señal.",
         "02:26 · Se registra una llamada.",
         "06:30 · Se descubre la ausencia."
       ],
-      solution: "La diferencia entre los registros electrónicos y los movimientos físicos crea una ventana de tiempo en la que alguien pudo entrar y salir sin quedar registrado claramente."
+      solution: "La diferencia entre los registros electrónicos y los movimientos físicos crea una ventana de tiempo sospechosa."
     },
 
     caso3: {
       tag: "HOMICIDIO · CE-003",
       title: "El último mensaje",
-      intro: "El periodista Andrés León aparece muerto en su estudio. Horas antes había escrito que estaba a punto de publicar una investigación.",
+      intro: "El periodista Andrés León aparece muerto en su estudio.",
       facts: [
         "El computador quedó encendido.",
         "El mensaje fue enviado desde una aplicación de escritorio.",
         "El reloj del computador estaba 11 minutos adelantado.",
         "Una libreta contiene tres iniciales.",
-        "La puerta del estudio se cerró desde fuera.",
-        "El historial muestra una sesión abierta a las 22:06."
+        "La puerta del estudio se cerró desde fuera."
       ],
       suspects: [
         "Su editor.",
@@ -93,20 +90,19 @@ document.addEventListener("DOMContentLoaded", function () {
         "22:06 · Se registra actividad en el computador.",
         "23:10 · Se encuentra el cuerpo."
       ],
-      solution: "El supuesto mensaje posterior a la muerte no demuestra por sí solo que Andrés estuviera vivo. El computador tenía el reloj adelantado y la aplicación permanecía sincronizada."
+      solution: "El supuesto mensaje posterior a la muerte no demuestra por sí solo que Andrés estuviera vivo."
     },
 
     caso4: {
       tag: "ROBO · CE-004",
       title: "La vitrina vacía",
-      intro: "Una galería privada descubre que una pieza histórica desapareció durante una recepción.",
+      intro: "Una pieza histórica desaparece de una galería durante una recepción.",
       facts: [
         "La alarma fue desactivada a las 19:42.",
         "La vitrina no presenta daños.",
         "El inventario fue actualizado a las 20:03.",
         "Una fotografía tomada a las 19:55 muestra un reflejo extraño.",
-        "El guardia afirma que nunca abandonó la entrada.",
-        "La caja encontrada después no coincide con el tamaño de la pieza."
+        "El guardia afirma que nunca abandonó la entrada."
       ],
       suspects: [
         "El curador.",
@@ -122,20 +118,19 @@ document.addEventListener("DOMContentLoaded", function () {
         "20:20 · Termina la recepción.",
         "20:31 · Se descubre la ausencia."
       ],
-      solution: "La fotografía contiene la pista decisiva. El reflejo permite reconstruir que la vitrina ya estaba abierta antes de que terminara la recepción."
+      solution: "La fotografía contiene la pista decisiva."
     },
 
     caso5: {
       tag: "DESAPARICIÓN · CE-005",
       title: "El tren de las 23:17",
-      intro: "Clara Méndez sube a un tren nocturno y desaparece después de una parada no programada.",
+      intro: "Clara Méndez desaparece después de una parada no programada.",
       facts: [
         "El tren salió a las 22:48.",
         "A las 23:17 aparece una parada de 54 segundos.",
         "La cámara muestra una persona con un paraguas rojo.",
         "El boleto de Clara fue validado dos veces.",
-        "Un teléfono cercano se conectó a la red de la estación.",
-        "El conductor niega haber visto pasajeros bajar."
+        "Un teléfono cercano se conectó a la red de la estación."
       ],
       suspects: [
         "El conductor.",
@@ -149,40 +144,44 @@ document.addEventListener("DOMContentLoaded", function () {
         "23:10 · Clara envía un mensaje.",
         "23:17 · Parada de 54 segundos.",
         "23:18 · Cámara registra el andén.",
-        "23:24 · El teléfono deja de transmitir ubicación.",
-        "00:02 · Se reporta la desaparición."
+        "23:24 · El teléfono deja de transmitir ubicación."
       ],
-      solution: "La parada de las 23:17 es la anomalía central. El sistema la registra aunque el conductor la niega."
+      solution: "La parada de las 23:17 es la anomalía central."
     }
-
   };
 
 
   /* =========================
-     MODAL
+     ABRIR CASOS
   ========================= */
 
-  const modal = document.getElementById("caseModal");
-  const modalContent = document.getElementById("modalContent");
-  const modalClose = document.getElementById("modalClose");
+  document.addEventListener("click", function(e) {
 
-  function abrirCaso(id) {
+    const boton = e.target.closest(".open-case");
 
-    console.log("Abriendo caso:", id);
+    if (!boton) return;
 
-    if (!modal || !modalContent) {
-      console.error("No se encontró el modal.");
-      return;
-    }
+    e.preventDefault();
 
+    const id = boton.getAttribute("data-case");
     const caso = casos[id];
 
+    console.log("Botón pulsado:", id);
+
     if (!caso) {
-      console.error("Caso inexistente:", id);
+      console.error("No existe el caso:", id);
       return;
     }
 
-    modalContent.innerHTML = `
+    const modal = document.getElementById("caseModal");
+    const contenido = document.getElementById("modalContent");
+
+    if (!modal || !contenido) {
+      console.error("No se encontró el modal");
+      return;
+    }
+
+    contenido.innerHTML = `
       <p class="modal-kicker">${caso.tag}</p>
 
       <h2 id="modalTitle">${caso.title}</h2>
@@ -192,16 +191,16 @@ document.addEventListener("DOMContentLoaded", function () {
       <h3>Hechos confirmados</h3>
 
       <div class="evidence">
-        ${caso.facts.map((pista, i) => `
+        ${caso.facts.map((dato, i) => `
           <div>
             <strong>Pista ${String(i + 1).padStart(2, "0")}</strong>
             <br>
-            ${pista}
+            ${dato}
           </div>
         `).join("")}
       </div>
 
-      <h3>Sospechosos y personas de interés</h3>
+      <h3>Sospechosos</h3>
 
       <ol>
         ${caso.suspects.map(persona => `
@@ -226,74 +225,45 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
 
-    console.log("Modal abierto correctamente");
-  }
+  });
 
 
-  function cerrarCaso() {
+  /* =========================
+     CERRAR MODAL
+  ========================= */
 
-    if (!modal) return;
+  document.addEventListener("click", function(e) {
 
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
+    if (
+      e.target.matches(".modal-close") ||
+      e.target.matches(".modal-backdrop")
+    ) {
 
-    console.log("Modal cerrado");
-  }
+      const modal = document.getElementById("caseModal");
 
+      if (modal) {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+      }
 
-  /* BOTONES ABRIR CASO */
-
-  const botonesCasos = document.querySelectorAll(".open-case");
-
-  botonesCasos.forEach(function (boton) {
-
-    boton.addEventListener("click", function (evento) {
-
-      evento.preventDefault();
-      evento.stopPropagation();
-
-      const id = boton.getAttribute("data-case");
-
-      abrirCaso(id);
-
-    });
+    }
 
   });
 
 
-  /* BOTÓN X */
-
-  if (modalClose) {
-
-    modalClose.addEventListener("click", function (evento) {
-
-      evento.preventDefault();
-      cerrarCaso();
-
-    });
-
-  }
-
-
-  /* FONDO OSCURO */
-
-  const fondoModal = document.querySelector(".modal-backdrop");
-
-  if (fondoModal) {
-
-    fondoModal.addEventListener("click", function () {
-      cerrarCaso();
-    });
-
-  }
-
-
   /* ESC */
 
-  document.addEventListener("keydown", function (evento) {
+  document.addEventListener("keydown", function(e) {
 
-    if (evento.key === "Escape") {
-      cerrarCaso();
+    if (e.key === "Escape") {
+
+      const modal = document.getElementById("caseModal");
+
+      if (modal) {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
     }
 
   });
@@ -303,31 +273,29 @@ document.addEventListener("DOMContentLoaded", function () {
      FILTROS
   ========================= */
 
-  const filtros = document.querySelectorAll(".filter");
+  document.addEventListener("click", function(e) {
 
-  filtros.forEach(function (boton) {
+    const boton = e.target.closest(".filter");
 
-    boton.addEventListener("click", function () {
+    if (!boton) return;
 
-      const filtro = boton.getAttribute("data-filter");
+    const filtro = boton.getAttribute("data-filter");
 
-      document.querySelectorAll(".filter").forEach(function (b) {
-        b.classList.remove("active");
-      });
+    document.querySelectorAll(".filter").forEach(b => {
+      b.classList.remove("active");
+    });
 
-      boton.classList.add("active");
+    boton.classList.add("active");
 
-      document.querySelectorAll(".case-card").forEach(function (tarjeta) {
+    document.querySelectorAll(".case-card").forEach(card => {
 
-        const categoria = tarjeta.getAttribute("data-category");
+      const categoria = card.getAttribute("data-category");
 
-        if (filtro === "todos" || categoria === filtro) {
-          tarjeta.classList.remove("hidden");
-        } else {
-          tarjeta.classList.add("hidden");
-        }
-
-      });
+      if (filtro === "todos" || categoria === filtro) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
 
     });
 
@@ -335,37 +303,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* =========================
-     MENÚ MÓVIL
+     MENÚ
   ========================= */
 
-  const menuBtn = document.getElementById("menuBtn");
-  const nav = document.getElementById("mainNav");
+  document.addEventListener("click", function(e) {
 
-  if (menuBtn && nav) {
+    const boton = e.target.closest("#menuBtn");
 
-    menuBtn.addEventListener("click", function (evento) {
+    if (!boton) return;
 
-      evento.preventDefault();
-      evento.stopPropagation();
+    const nav = document.getElementById("mainNav");
 
+    if (nav) {
       nav.classList.toggle("open");
+    }
 
-    });
-
-    nav.querySelectorAll("a").forEach(function (enlace) {
-
-      enlace.addEventListener("click", function () {
-        nav.classList.remove("open");
-      });
-
-    });
-
-  }
+  });
 
 
-  console.log(
-    "Código Enigma cargado. Botones de casos:",
-    botonesCasos.length
-  );
+  console.log("Código Enigma: sistema listo");
 
 });
